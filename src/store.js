@@ -1,4 +1,10 @@
-import { useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 
 const useStickyState = (
   key = "sticky",
@@ -22,6 +28,20 @@ const useStickyState = (
   return [state, setState, clearState];
 };
 
+const StateContext = createContext();
+const DispatchContext = createContext();
+const StateProvider = ({ reducer, initialState, children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <DispatchContext.Provider value={dispatch}>
+      <StateContext.Provider value={state}>{children}</StateContext.Provider>
+    </DispatchContext.Provider>
+  );
+};
+
+const useGlobalState = () => useContext(StateContext);
+const useGlobalDispatch = () => useContext(DispatchContext);
+
 const useUser = () => {
   const [user, setUser] = useStickyState(
     "user",
@@ -40,4 +60,10 @@ const useUser = () => {
   return [user, setUser];
 };
 
-export { useUser };
+const useCart = () => {
+  const [cart, setCart] = useStickyState("cart", [], true);
+
+  return [cart, setCart];
+};
+
+export { StateProvider, useGlobalDispatch, useGlobalState };

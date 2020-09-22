@@ -11,8 +11,11 @@ import {
 } from "semantic-ui-react";
 import Countdown from "./Countdown";
 import "./Hero.css";
+import { useGlobalState } from "../store";
+import { Link } from "react-router-dom";
 
 function Hero() {
+  const { cart, user } = useGlobalState();
   const [fixed, setFixed] = useState(false);
 
   const showFixedMenu = () => setFixed(true);
@@ -36,13 +39,14 @@ function Hero() {
             <Menu.Item as="a">Dreams Concert</Menu.Item>
             <Menu.Item position="right">
               <Button
-                as="a"
+                as={Link}
+                to={user ? "/checkout" : "/login"}
                 inverted={!fixed}
                 primary={fixed}
+                icon="cart"
                 style={{ marginLeft: "0.5em" }}
-              >
-                Liên hệ
-              </Button>
+                content={cart.length > 0 ? cart.length : false}
+              />
             </Menu.Item>
           </Container>
         </Menu>

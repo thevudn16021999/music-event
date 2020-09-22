@@ -6,7 +6,7 @@ function Steps({ step }) {
   const processes = [
     { icon: "sign in", title: "Đăng nhập" },
     { icon: "credit card", title: "Thông tin thanh toán" },
-    { icon: "info", title: "Xác nhận thanh toán" },
+    { icon: "info", title: "Xác nhận" },
   ];
   return (
     <Step.Group unstackable widths={processes.length}>
