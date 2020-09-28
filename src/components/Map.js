@@ -51,6 +51,16 @@ function Map() {
               <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
               <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
               <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+            </Image.Group>
+          </Segment>
+          <Segment inverted textAlign="center">
+            <Header sub textAlign="center" className="section-header">
+              Nhà tài trợ
+            </Header>
+            <Divider inverted horizontal>
+              <Icon name="diamond" />
+            </Divider>
+            <Image.Group size="small">
               <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
               <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
               <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
