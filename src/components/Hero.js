@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Header,
   Button,
@@ -8,6 +8,7 @@ import {
   Visibility,
   Icon,
   Grid,
+  Popup,
 } from "semantic-ui-react";
 import Countdown from "./Countdown";
 import "./Hero.css";
@@ -17,6 +18,27 @@ import { Link } from "react-router-dom";
 function Hero() {
   const { cart, user } = useGlobalState();
   const [fixed, setFixed] = useState(false);
+  const [popup, setPopup] = useState(false);
+  const [time, setTime] = useState(3);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      setPopup(true);
+      setTime(3);
+    }
+  }, [cart]);
+
+  useEffect(() => {
+    const countdown = setTimeout(() => {
+      setTime((time) => (time > 0 ? time - 1 : 0));
+      if (time === 0) {
+        setPopup(false);
+      }
+    }, 1000);
+    return () => {
+      clearTimeout(countdown);
+    };
+  }, [time]);
 
   const showFixedMenu = () => setFixed(true);
   const hideFixedMenu = () => setFixed(false);
@@ -38,14 +60,21 @@ function Hero() {
           <Container>
             <Menu.Item as="a">Dreams Concert</Menu.Item>
             <Menu.Item position="right">
-              <Button
-                as={Link}
-                to={user ? "/checkout" : "/login"}
-                inverted={!fixed}
-                primary={fixed}
-                icon="cart"
-                style={{ marginLeft: "0.5em" }}
-                content={cart.length > 0 ? cart.length : false}
+              <Popup
+                trigger={
+                  <Button
+                    as={Link}
+                    to={user ? "/checkout" : "/login"}
+                    inverted={!fixed}
+                    primary={fixed}
+                    icon="cart"
+                    style={{ marginLeft: "0.5em" }}
+                    content={cart.length > 0 ? cart.length : false}
+                  />
+                }
+                open={popup}
+                position="bottom center"
+                content="Bấm vào đây để thanh toán"
               />
             </Menu.Item>
           </Container>

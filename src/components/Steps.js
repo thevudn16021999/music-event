@@ -18,7 +18,7 @@ function Steps({ step }) {
           completed={step > index}
         >
           <Icon name={process.icon} />
-          <Media at="lg">
+          <Media greaterThan="md">
             <Step.Content>
               <Step.Title>{process.title}</Step.Title>
             </Step.Content>

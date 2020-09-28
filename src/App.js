@@ -19,6 +19,7 @@ import { ACTION } from "./reducer";
 function App() {
   const dispatch = useGlobalDispatch();
   useEffect(() => {
+    // auth.signOut();
     auth.onAuthStateChanged((user) => {
       if (user) {
         dispatch({
@@ -33,37 +34,37 @@ function App() {
         });
       }
     });
-  }, []);
+  });
 
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/" exact>
-          <MediaContextProvider>
+      <MediaContextProvider>
+        <Switch>
+          <Route path="/" exact>
             <Hero />
             <Artists />
             <Schedule />
             <Tickets />
             <Map />
             <Footer />
-          </MediaContextProvider>
-        </Route>
-        <Route path="/admin">
-          <h1>Hello World!</h1>
-        </Route>
-        <Route path="/login">
-          <Steps step={0} />
-          <Login />
-        </Route>
-        <Route path="/checkout">
-          <Steps step={1} />
-          <Checkout />
-        </Route>
-        <Route path="/confirm">
-          <Steps step={2} />
-          <Confirm />
-        </Route>
-      </Switch>
+          </Route>
+          <Route path="/admin">
+            <h1>Hello World!</h1>
+          </Route>
+          <Route path="/login">
+            <Steps step={0} />
+            <Login />
+          </Route>
+          <Route path="/checkout">
+            <Steps step={1} />
+            <Checkout />
+          </Route>
+          <Route path="/confirm">
+            <Steps step={2} />
+            <Confirm />
+          </Route>
+        </Switch>
+      </MediaContextProvider>
     </BrowserRouter>
   );
 }

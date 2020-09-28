@@ -1,14 +1,6 @@
 import { auth, firebase } from "./firebase";
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Icon,
-  Message,
-  Segment,
-} from "semantic-ui-react";
+import { Button, Form, Grid, Header, Icon, Segment } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import { useGlobalDispatch, useGlobalState } from "./store";
 import { ACTION } from "./reducer";
@@ -68,7 +60,6 @@ function Login() {
             </Button>
           </Segment>
         </Form>
-        <Message>{cart.map((item, index) => {})}</Message>
       </Grid.Column>
     </Grid>
   );

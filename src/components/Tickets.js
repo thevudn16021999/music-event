@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Container,
   Divider,
@@ -9,7 +9,6 @@ import {
 } from "semantic-ui-react";
 import { ACTION } from "../reducer";
 import { useGlobalDispatch } from "../store";
-// import Checkout from "./Checkout";
 import TicketItem from "./TicketItem";
 
 const tickets = [
@@ -29,11 +28,6 @@ const tickets = [
 
 function Tickets() {
   const dispatch = useGlobalDispatch();
-  const [openCheckout, setOpenCheckout] = useState(false);
-  const [ticket, setTicket] = useState(tickets[0]);
-
-  const closeModal = () => setOpenCheckout(false);
-  const openModal = () => setOpenCheckout(true);
 
   const addTicketToCart = (ticket) => {
     dispatch({
@@ -54,26 +48,16 @@ function Tickets() {
           <Icon name="hand spock" />
         </Divider>
       </Container>
-      <Grid container centered stackable columns={2} textAlign="center" divided>
+      <Grid container centered stackable columns={2} textAlign="center">
         {tickets.map((ticket) => (
           <Grid.Column key={ticket.id}>
             <TicketItem
               {...ticket}
-              handleClick={() => {
-                addTicketToCart(ticket);
-                // setTicket(ticket);
-                // setOpenCheckout(true);
-              }}
+              handleClick={() => addTicketToCart(ticket)}
             />
           </Grid.Column>
         ))}
       </Grid>
-      {/* <Checkout
-        open={openCheckout}
-        closeModal={closeModal}
-        openModal={openModal}
-        ticket={ticket}
-      /> */}
     </Segment>
   );
 }

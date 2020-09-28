@@ -3,6 +3,7 @@ let cartStorage = JSON.parse(localStorage.getItem("cart"));
 export const initialState = {
   cart: cartStorage ?? [],
   user: null,
+  toggle: false,
 };
 
 export const ACTION = {
@@ -10,6 +11,7 @@ export const ACTION = {
   CLEAR_CART: 2,
   REMOVE_FROM_CART: 3,
   SET_USER: 4,
+  TOGGLE: 5,
 };
 
 export const getCartTotalCost = (cart) =>
@@ -33,7 +35,8 @@ const reducer = (state, action) => {
   console.log(action);
   switch (action.type) {
     case ACTION.ADD_TO_CART: {
-      let newCart = [...state.cart, action.item];
+      let { id, name, price } = action.item;
+      let newCart = [...state.cart, { id, name, price }];
 
       localStorage.setItem("cart", JSON.stringify(newCart));
 
@@ -75,6 +78,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+    }
+
+    case ACTION.TOGGLE: {
+      const toggleState = state.toggle;
+      return {
+        ...state,
+        toggle: !toggleState,
       };
     }
 
