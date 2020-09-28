@@ -16,31 +16,31 @@ function Artists() {
     {
       image:
         "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-      header: "Tên ca sĩ",
+      header: "Thịnh Suy",
       meta: "Dòng nhạc",
     },
     {
       image:
         "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-      header: "Tên ca sĩ",
+      header: "Hoàng Dũng",
       meta: "Dòng nhạc",
     },
     {
       image:
         "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-      header: "Tên ca sĩ",
+      header: "Vũ",
       meta: "Dòng nhạc",
     },
     {
       image:
         "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-      header: "Tên ca sĩ",
+      header: "Chillies",
       meta: "Dòng nhạc",
     },
     {
       image:
         "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-      header: "Tên ca sĩ",
+      header: "Cá Hồi Hoang",
       meta: "Dòng nhạc",
     },
     {

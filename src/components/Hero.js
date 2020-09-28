@@ -65,11 +65,11 @@ function Hero() {
               className="text-header"
             />
             <Header
-              content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, necessitatibus."
+              content="Dreamers Concert là chương trình âm nhạc đưa những kẻ mộng mơ say mê âm nhạc đến với nhau, cùng hò reo trong âm nhạc."
               inverted
               className="text-subhead"
             />
-            <Countdown date="Sun Oct 13 2020 16:51:50 GMT+0700" />
+            <Countdown date="Dec 05 2020 16:51:50 GMT+0700" />
             <Button primary size="huge">
               Đặt vé ngay
               <Icon name="right arrow" />
