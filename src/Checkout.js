@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Form,
   Grid,
   Header,
+  Icon,
   Input,
   Item,
   Message,
 } from "semantic-ui-react";
+import { auth } from "./firebase";
 import { ACTION, getCartTotalCost, getTicketsQuantity } from "./reducer";
 import { useGlobalDispatch, useGlobalState } from "./store";
 import { currencyFormat } from "./util";
@@ -43,6 +46,10 @@ function Checkout() {
     } else {
       return { name: "x", color: "red" };
     }
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -116,6 +123,18 @@ function Checkout() {
               icon={isCheck(true)}
             />
           </Form.Group>
+          <Link to={"/"} style={{ color: "red" }}>
+            <Icon name="arrow left" />
+            Trở về Trang Chủ
+          </Link>
+          <Button
+            onClick={handleClick}
+            color="primary"
+            size="large"
+            floated="right"
+          >
+            Thanh Toán
+          </Button>
         </Form>
       </Grid.Column>
       <Grid.Column>
