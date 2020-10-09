@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import {
   Button,
   Form,
@@ -10,7 +10,7 @@ import {
   Item,
   Message,
 } from "semantic-ui-react";
-import { auth } from "./firebase";
+import { db } from "./firebase";
 import { ACTION, getCartTotalCost, getTicketsQuantity } from "./reducer";
 import { useGlobalDispatch, useGlobalState } from "./store";
 import { currencyFormat } from "./util";
@@ -19,6 +19,13 @@ function Checkout() {
   const { cart, user } = useGlobalState();
   const dispatch = useGlobalDispatch();
   const tickets = getTicketsQuantity(cart);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!user) {
+      history.push("/login");
+    }
+  });
 
   const addItem = (item) => {
     dispatch({
@@ -48,8 +55,21 @@ function Checkout() {
     }
   };
 
-  const handleClick = (e) => {
+  const handleChange = (e, { name, value }) => {
+    dispatch({ type: ACTION.SET_USER, user: { ...user, [name]: value } });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(tickets);
+    let data = {
+      name: user.name,
+      email: user.email,
+      gender: user.gender,
+      phone: user.phone,
+      age: user.age,
+    };
+    db.collection("users").doc(user.id).set(data, { merge: true });
   };
 
   return (
@@ -63,39 +83,40 @@ function Checkout() {
     >
       <Grid.Column>
         <Header>Thông tin khách hàng</Header>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Group widths="equal">
             <Form.Input
               fluid
               name="name"
-              value={user?.displayName}
+              value={user?.name}
               label="Họ và tên"
               placeholder="Nguyễn Văn A"
-              // onChange={handleChange}
+              onChange={handleChange}
               required
-              readOnly
-              icon={isCheck(true)}
+              // readOnly
+              // icon={isCheck(true)}
             />
           </Form.Group>
           <Form.Group widths="equal">
             <Form.Select
               fluid
               name="gender"
-              // value={user.gender}
+              value={user?.gender}
               label="Giới tính"
               options={genderOptions}
-              placeholder="Nam / Nữ / Giới tính khác"
-              // onChange={handleChange}
+              placeholder="Nam"
+              onChange={handleChange}
               required
             />
             <Form.Input
               fluid
               name="age"
-              // value={user.age}
+              value={user?.age}
               label="Độ tuổi"
               type="number"
               placeholder="18"
-              // onChange={handleChange}
+              onChange={handleChange}
+              // icon={isCheck(userData.age != null)}
               required
             />
           </Form.Group>
@@ -103,11 +124,12 @@ function Checkout() {
             <Form.Input
               fluid
               name="phone"
-              value={user?.phoneNumber}
+              value={user?.phone}
               label="Số điện thoại"
               type="tel"
               placeholder="0905999999"
-              // onChange={handleChange}
+              onChange={handleChange}
+              // icon={isCheck(userData.phone != null)}
               required
             />
             <Form.Input
@@ -127,12 +149,7 @@ function Checkout() {
             <Icon name="arrow left" />
             Trở về Trang Chủ
           </Link>
-          <Button
-            onClick={handleClick}
-            color="primary"
-            size="large"
-            floated="right"
-          >
+          <Button type="submit" color="blue" size="large" floated="right">
             Thanh Toán
           </Button>
         </Form>

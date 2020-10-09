@@ -15,18 +15,14 @@ import { Confirm } from "semantic-ui-react";
 import { auth } from "./firebase";
 import { useGlobalDispatch } from "./store";
 import { ACTION } from "./reducer";
+import Profile from "./Profile";
 
 function App() {
   const dispatch = useGlobalDispatch();
+
   useEffect(() => {
-    // auth.signOut();
     auth.onAuthStateChanged((user) => {
-      if (user) {
-        dispatch({
-          type: ACTION.SET_USER,
-          user: user,
-        });
-      } else {
+      if (!user) {
         // logout user
         dispatch({
           type: ACTION.SET_USER,
@@ -47,6 +43,9 @@ function App() {
             <Tickets />
             <Map />
             <Footer />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
           <Route path="/admin">
             <h1>Hello World!</h1>

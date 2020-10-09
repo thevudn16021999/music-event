@@ -1,4 +1,4 @@
-import { auth, firebase } from "./firebase";
+import { auth, db, firebase } from "./firebase";
 import React, { useEffect, useState } from "react";
 import { Button, Form, Grid, Header, Icon, Segment } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
@@ -27,11 +27,25 @@ function Login() {
     auth
       .signInWithPopup(provider)
       .then(function (result) {
-        console.log(result);
-        dispatch({
-          type: ACTION.SET_USER,
-        });
-        history.push("/checkout");
+        const { displayName, email, uid } = result.user;
+        const userData = { id: uid, name: displayName, email: email };
+        const userRef = db.collection("users").doc(uid);
+        userRef
+          .get()
+          .then((doc) => {
+            if (doc.exists) {
+              dispatch({
+                type: ACTION.SET_USER,
+                user: { ...doc.data(), id: uid },
+              });
+            } else {
+              userRef.set(userData, { merge: true });
+              dispatch({ type: ACTION.SET_USER, user: userData });
+            }
+          })
+          .finally(() => {
+            history.push("/checkout");
+          });
       })
       .catch((error) => console.log(error))
       .finally(() => {

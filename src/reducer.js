@@ -1,8 +1,9 @@
 let cartStorage = JSON.parse(localStorage.getItem("cart"));
+let userStorage = JSON.parse(localStorage.getItem("user"));
 
 export const initialState = {
   cart: cartStorage ?? [],
-  user: null,
+  user: userStorage ?? null,
   toggle: false,
 };
 
@@ -37,7 +38,11 @@ const reducer = (state, action) => {
     case ACTION.ADD_TO_CART: {
       let { id, name, price } = action.item;
       let newCart = [...state.cart, { id, name, price }];
-
+      for (const item of state.cart) {
+        if (item.id === id) {
+          item.qty += 1;
+        }
+      }
       localStorage.setItem("cart", JSON.stringify(newCart));
 
       return {
@@ -75,6 +80,8 @@ const reducer = (state, action) => {
     }
 
     case ACTION.SET_USER: {
+      localStorage.setItem("user", JSON.stringify(action.user));
+
       return {
         ...state,
         user: action.user,
