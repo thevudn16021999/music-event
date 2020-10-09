@@ -38,7 +38,7 @@ function Tickets() {
 
   return (
     <Segment vertical padded="very">
-      <Header sub textAlign="center" className="section-header">
+      <Header sub textAlign="center" className="section-header" id="booking">
         Đặt vé
       </Header>
       <Container>
@@ -50,7 +50,7 @@ function Tickets() {
       </Container>
       <Grid container centered stackable columns={2} textAlign="center">
         {tickets.map((ticket) => (
-          <Grid.Column key={ticket.id}>
+          <Grid.Column key={ticket.id} > 
             <TicketItem
               {...ticket}
               handleClick={() => addTicketToCart(ticket)}

@@ -1,0 +1,11 @@
+.ui.grid>.row>.column>img{
+	max-width: 50% !important;
+}
+
+.ui.grid {
+    margin: 0 auto;
+}
+
+.ui.inverted.vertical.very.padded.segment {
+    background: #35343400;
+}

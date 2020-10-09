@@ -99,7 +99,7 @@ function Hero() {
               className="text-subhead"
             />
             <Countdown date="Dec 05 2020 16:51:50 GMT+0700" />
-            <Button primary size="huge">
+            <Button primary size="huge" href="#booking">
               Đặt vé ngay
               <Icon name="right arrow" />
             </Button>

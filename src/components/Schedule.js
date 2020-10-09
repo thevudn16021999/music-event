@@ -8,23 +8,24 @@ import {
   Image,
   Segment,
 } from "semantic-ui-react";
+import "./Schedule.css";
 
 function Schedule() {
   const items = [
     {
-      image: "https://react.semantic-ui.com/images/wireframe/image.png",
+      image: "https://cdn.glitch.com/fe1c1ab8-d567-49ec-93a3-b5aa5437dd9e%2Foptick.png",
       header: "Mở bán vé",
       description: "Description",
       meta: "Oct 10 - Oct 31",
     },
     {
-      image: "https://react.semantic-ui.com/images/wireframe/image.png",
+      image: "https://cdn.glitch.com/fe1c1ab8-d567-49ec-93a3-b5aa5437dd9e%2Fcheckin.png",
       header: "Check-in",
       description: "Description",
       meta: "12:00 - 19:00 ( 29 / 11 )",
     },
     {
-      image: "https://react.semantic-ui.com/images/wireframe/image.png",
+      image: "https://cdn.glitch.com/fe1c1ab8-d567-49ec-93a3-b5aa5437dd9e%2Fclock.svg",
       header: "Xem biểu diễn",
       description: "Description",
       meta: "19:30 - ô vờ lai ( 31/11 )",
@@ -36,10 +37,6 @@ function Schedule() {
       vertical
       padded="very"
       style={{
-        backgroundImage:
-          "linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.0-9/91364940_655445341685429_3907652578380349440_o.png?_nc_cat=103&_nc_sid=730e14&_nc_ohc=wCX05DQ19TwAX8BEJ5a&_nc_ht=scontent.fsgn2-2.fna&oh=8d420961b8659ce7f81faf31541bd850&oe=5F82946F)",
-        backgroundPosition: "right",
-        backgroundRepeat: "no-repeat",
       }}
     >
       <Header sub textAlign="center" className="section-header">
