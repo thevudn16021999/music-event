@@ -1,8 +1,12 @@
 .ui.header.section-header {
   font-size: 2em;
   font-weight: 700;
-  /* color: #1678c2; */
+  color: #fff;
   margin-bottom: 0em;
+}
+
+.ui.horizontal.divider{
+ color: #700eff !important;
 }
 
 .ui.very.padded.segment {
