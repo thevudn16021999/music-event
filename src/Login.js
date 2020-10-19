@@ -13,7 +13,7 @@ function Login() {
 
   useEffect(() => {
     if (user) {
-      if (cart.length > 0) {
+      if (cart.size > 0) {
         history.push("/checkout");
       } else {
         history.push("/profile");
@@ -28,7 +28,7 @@ function Login() {
       .signInWithPopup(provider)
       .then(function (result) {
         const { displayName, email, uid } = result.user;
-        const userData = { id: uid, name: displayName, email: email };
+        const userData = { name: displayName, email: email };
         const userRef = db.collection("users").doc(uid);
         userRef
           .get()
@@ -36,7 +36,7 @@ function Login() {
             if (doc.exists) {
               dispatch({
                 type: ACTION.SET_USER,
-                user: { ...doc.data(), id: uid },
+                user: { ...doc.data() },
               });
             } else {
               userRef.set(userData, { merge: true });

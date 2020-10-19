@@ -14,6 +14,7 @@ import Countdown from "./Countdown";
 import "./Hero.css";
 import { useGlobalState } from "../store";
 import { Link } from "react-router-dom";
+import { getTicketQuantity } from "../reducer";
 
 function Hero() {
   const { cart, user } = useGlobalState();
@@ -68,8 +69,7 @@ function Hero() {
                     inverted={!fixed}
                     primary={fixed}
                     icon="cart"
-                    style={{ marginLeft: "0.5em" }}
-                    content={cart.length > 0 ? cart.length : false}
+                    content={cart.size > 0 ? getTicketQuantity(cart) : null}
                   />
                 }
                 open={popup}

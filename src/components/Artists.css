@@ -1,28 +1,25 @@
 .ui.card {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
-.ui.card.circular.image{
-	justify-content: end;
+.ui.card.circular.image {
+  justify-content: flex-end;
 }
-.ui.card > .image{
-	display: flex;
-	align-items: end;
-	justify-content: end;
-}
-
-.ui.card.circular.image > .content{
-	position: absolute;
-	right: 1%;
-	left: 1%;
-	
+.ui.card > .image {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
-.ui.card > .content > .header{
-	color: #6400f7;
-
-}
-.ui.card.circular .meta{
-	color:rgba(128, 0, 255, 0.4)
+.ui.card.circular.image > .content {
+  position: absolute;
+  right: 1%;
+  left: 1%;
 }
 
+.ui.card > .content > .header {
+  color: #6400f7;
+}
+.ui.card.circular .meta {
+  color: rgba(128, 0, 255, 0.4);
+}

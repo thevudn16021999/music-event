@@ -22,7 +22,12 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      if (!user) {
+      if (user) {
+        dispatch({
+          type: ACTION.SET_USER,
+          user: { id: user.uid, name: user.displayName, email: user.email },
+        });
+      } else {
         // logout user
         dispatch({
           type: ACTION.SET_USER,

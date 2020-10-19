@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import {
   Container,
   Divider,
@@ -7,27 +8,26 @@ import {
   Icon,
   Segment,
 } from "semantic-ui-react";
-import { ACTION } from "../reducer";
-import { useGlobalDispatch } from "../store";
+import { ACTION, getTicketType } from "../reducer";
+import { useGlobalDispatch, useGlobalState } from "../store";
 import TicketItem from "./TicketItem";
-
-const tickets = [
-  {
-    id: 2001,
-    name: "Vé thường",
-    price: 500000,
-    services: ["Quyền lợi 1", "Quyền lợi 2", "Quyền lợi 3"],
-  },
-  {
-    id: 2002,
-    name: "Vé V.I.P",
-    price: 1000000,
-    services: ["Quyền lợi 1", "Quyền lợi 2", "Quyền lợi 3"],
-  },
-];
 
 function Tickets() {
   const dispatch = useGlobalDispatch();
+  const { ticketType } = useGlobalState();
+
+  useEffect(() => {
+    (async () => {
+      if (ticketType.length === 0) {
+        let tickets = await getTicketType();
+        console.log(tickets);
+        dispatch({
+          type: ACTION.LOAD_TICKETTYPE,
+          tickets: tickets,
+        });
+      }
+    })();
+  }, []);
 
   const addTicketToCart = (ticket) => {
     dispatch({
@@ -49,8 +49,8 @@ function Tickets() {
         </Divider>
       </Container>
       <Grid container centered stackable columns={2} textAlign="center">
-        {tickets.map((ticket) => (
-          <Grid.Column key={ticket.id} > 
+        {ticketType?.map((ticket) => (
+          <Grid.Column key={ticket.id}>
             <TicketItem
               {...ticket}
               handleClick={() => addTicketToCart(ticket)}

@@ -17,5 +17,18 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 auth.useDeviceLanguage();
+// db.enablePersistence()
+//   .then(() => {
+//     console.log("Enable Offline Features");
+//   })
+//   .catch(function (err) {
+//     if (err.code === "failed-precondition") {
+//       console.error(
+//         "Mutiple Tabs use. Please Using one Tab only in Offline Mode"
+//       );
+//     } else if (err.code === "unimplemented") {
+//       console.error("Browser not support Offline Yet");
+//     }
+//   });
 
 export { auth, db, firebase };
