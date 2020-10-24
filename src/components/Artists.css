@@ -1,27 +1,35 @@
 /*Artists*/
 
-.ui.card {
+.ui {
   margin: 0 auto;
 }
 
-.ui.card.circular.image {
+.ui.circular.image {
   justify-content: flex-end;
 }
-.ui.card > .image {
+.ui > .image {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
 }
 
-.ui.card.circular.image > .content {
+.ui.circular.image > .content {
   position: absolute;
   right: 1%;
   left: 1%;
 }
 
-.ui.card > .content > .header {
+.ui > .content > .header {
   color: #6400f7;
 }
-.ui.card.circular .meta {
+.ui.circular .meta {
   color: rgba(128, 0, 255, 0.4);
+}
+
+.ui.circular.image {
+  transition: transform 0.3s;
+}
+
+.ui.circular.image:hover {
+  transform: scale(1.09);
 }

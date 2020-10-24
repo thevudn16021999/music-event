@@ -9,13 +9,13 @@ import {
   Icon,
   Grid,
   Popup,
+  Image,
 } from "semantic-ui-react";
 import Countdown from "./Countdown";
 import "./Hero.css";
 import { useGlobalState } from "../store";
 import { Link } from "react-router-dom";
 import { getTicketQuantity } from "../reducer";
-
 
 function Hero() {
   const { cart, user } = useGlobalState();
@@ -46,15 +46,12 @@ function Hero() {
   const hideFixedMenu = () => setFixed(false);
 
   return (
-    
     <Visibility
       once={false}
       onBottomPassed={showFixedMenu}
       onBottomPassedReverse={hideFixedMenu}
     >
-      
       <Segment inverted vertical textAlign="center" className="hero">
-        
         <Menu
           fixed={fixed ? "top" : null}
           inverted={!fixed}
@@ -63,8 +60,17 @@ function Hero() {
           size="large"
         >
           <Container>
-            <Menu.Item as="a" style={{fontWeight: "bold"}}>Dreams Concert</Menu.Item>
+            <Menu.Item as="a" style={{ fontWeight: "bold" }}>
+              Dreams Concert
+            </Menu.Item>
             <Menu.Item position="right">
+              <Grid centered style={{ display: fixed ? "none" : "" }}>
+                <Grid.Row>Bảo trợ truyền thông</Grid.Row>
+                <Image
+                  size="tiny"
+                  src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-9/49949891_2215632811809434_3224796621342507008_n.jpg?_nc_cat=1&ccb=2&_nc_sid=85a577&_nc_ohc=yRKKfH0VgdUAX_q-Tqm&_nc_ht=scontent.fdad3-1.fna&oh=27995637c0d08ca83ac2d077879aaf56&oe=5FB87150"
+                />
+              </Grid>
               <Popup
                 trigger={
                   <Button
@@ -83,7 +89,7 @@ function Hero() {
             </Menu.Item>
           </Container>
         </Menu>
-        
+
         <Grid
           style={{
             height: "100%",
@@ -92,16 +98,13 @@ function Hero() {
             marginTop: "12vh",
           }}
         >
-          
           <Container text>
-
             <Countdown date="Dec 05 2020 16:51:50 GMT+0700" />
             <Button primary size="huge" href="#booking">
               Đặt vé ngay
               <Icon name="right arrow" />
             </Button>
           </Container>
-          
         </Grid>
       </Segment>
     </Visibility>
