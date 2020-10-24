@@ -16,6 +16,7 @@ import { useGlobalState } from "../store";
 import { Link } from "react-router-dom";
 import { getTicketQuantity } from "../reducer";
 
+
 function Hero() {
   const { cart, user } = useGlobalState();
   const [fixed, setFixed] = useState(false);
@@ -45,12 +46,15 @@ function Hero() {
   const hideFixedMenu = () => setFixed(false);
 
   return (
+    
     <Visibility
       once={false}
       onBottomPassed={showFixedMenu}
       onBottomPassedReverse={hideFixedMenu}
     >
+      
       <Segment inverted vertical textAlign="center" className="hero">
+        
         <Menu
           fixed={fixed ? "top" : null}
           inverted={!fixed}
@@ -59,7 +63,7 @@ function Hero() {
           size="large"
         >
           <Container>
-            <Menu.Item as="a">Dreams Concert</Menu.Item>
+            <Menu.Item as="a" style={{fontWeight: "bold"}}>Dreams Concert</Menu.Item>
             <Menu.Item position="right">
               <Popup
                 trigger={
@@ -79,31 +83,25 @@ function Hero() {
             </Menu.Item>
           </Container>
         </Menu>
+        
         <Grid
           style={{
             height: "100%",
             alignItems: "center",
             justifyContent: "center",
+            marginTop: "12vh",
           }}
         >
+          
           <Container text>
-            <Header
-              as="h1"
-              content="Dreamers Concert"
-              inverted
-              className="text-header"
-            />
-            <Header
-              content="Dreamers Concert là chương trình âm nhạc đưa những kẻ mộng mơ say mê âm nhạc đến với nhau, cùng hò reo trong âm nhạc."
-              inverted
-              className="text-subhead"
-            />
+
             <Countdown date="Dec 05 2020 16:51:50 GMT+0700" />
             <Button primary size="huge" href="#booking">
               Đặt vé ngay
               <Icon name="right arrow" />
             </Button>
           </Container>
+          
         </Grid>
       </Segment>
     </Visibility>

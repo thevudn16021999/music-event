@@ -11,6 +11,7 @@ import {
 import { ACTION, getTicketType } from "../reducer";
 import { useGlobalDispatch, useGlobalState } from "../store";
 import TicketItem from "./TicketItem";
+import "./Tickets.css";
 
 function Tickets() {
   const dispatch = useGlobalDispatch();
@@ -37,7 +38,7 @@ function Tickets() {
   };
 
   return (
-    <Segment vertical padded="very">
+    <Segment vertical padded="very" style={{background:"#dadde6"}}>
       <Header sub textAlign="center" className="section-header" id="booking">
         Đặt vé
       </Header>
@@ -50,12 +51,12 @@ function Tickets() {
       </Container>
       <Grid container centered stackable columns={2} textAlign="center">
         {ticketType?.map((ticket) => (
-          <Grid.Column key={ticket.id}>
+          <Grid.Row key={ticket.id}>
             <TicketItem
               {...ticket}
               handleClick={() => addTicketToCart(ticket)}
             />
-          </Grid.Column>
+          </Grid.Row>
         ))}
       </Grid>
     </Segment>

@@ -1,0 +1,49 @@
+
+.accordion.ui.fluid.styled{
+    background: rgba(251,251,252,.8);
+    border: 1px solid #dde2e8;
+    color: #293037;
+    padding: 30px 24px;
+    max-width: 830px;
+    margin: 0 auto;
+}
+
+.accordion.ui.fluid.styled >.content{
+    height: 0px;
+    display: none;
+    border: none;
+    -webkit-transition: height .5s ease;
+    transition: height .5s ease;
+}
+
+.accordion.ui.fluid.styled > .content.active{
+    height: 100%;
+    display: block;
+    opacity: 1;
+}
+
+#sectionFAQ{
+    background: url(https://dventertainment.vn/assets/images/upload/bg_section__faq.png) no-repeat top fixed transparent;
+    background-size: auto;
+    background-size: cover;
+    padding: 60px 0;
+}
+
+#sectionFAQ .section-heading {
+    margin: 0 auto 25px;
+    text-align: center;
+    position: relative;
+    padding: 0 0 20px;
+}
+.section-heading::before {
+    content: "";
+    background: #293037;
+    height: 4px;
+    width: 136px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 4px;
+}

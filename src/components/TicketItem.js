@@ -6,22 +6,26 @@ import {
   Header,
   Icon,
   List,
+  Image,
   Statistic,
 } from "semantic-ui-react";
 
 function TicketItem({ name, services, price, handleClick }) {
   return (
-    <Container textAlign="center">
-      <Card fluid centered style={{ maxWidth: "28rem" }}>
+    <div className="card fl-left">
+      <section className="date">
         <Card.Content style={{ padding: "3rem 2.5rem" }}>
           <Header>{name}</Header>
-          <Statistic
+          
+        </Card.Content>
+        </section>
+        <section className="card-cont">
+        <Statistic
             // size="large"
             value={Number(price).toLocaleString("vi-VN")}
             label="vnđ"
           />
-        </Card.Content>
-        {/* <Image src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" /> */}
+        {/* { <Image src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" /> } */}
         <Card.Content style={{ padding: "3rem 2.5rem" }}>
           <List relaxed="very" items={services}></List>
         </Card.Content>
@@ -30,7 +34,7 @@ function TicketItem({ name, services, price, handleClick }) {
             <Icon name="hand point down" />
             <Icon name="hand point down" />
           </Divider> */}
-        <Card.Content style={{ padding: "2rem 2rem" }} extra>
+        <Card.Content style={{ padding: "2rem 2rem"}} extra>
           <Button animated primary size="huge" onClick={handleClick}>
             <Button.Content visible>Đặt vé ngay</Button.Content>
             <Button.Content hidden>
@@ -38,8 +42,8 @@ function TicketItem({ name, services, price, handleClick }) {
             </Button.Content>
           </Button>
         </Card.Content>
-      </Card>
-    </Container>
+        </section>
+    </div>
   );
 }
 

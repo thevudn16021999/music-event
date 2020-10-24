@@ -1,3 +1,5 @@
+/*App*/
+
 .ui.header.section-header {
   font-size: 2em;
   font-weight: 700;
@@ -6,9 +8,13 @@
 }
 
 .ui.horizontal.divider{
- color: #700eff !important;
+ color: #de305d !important;
 }
 
 .ui.very.padded.segment {
   padding: 5em 0 !important;
+}
+
+.ui.inverted.segment, .ui.primary.inverted.segment{
+  background: none;
 }

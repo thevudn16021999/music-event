@@ -1,5 +1,5 @@
 .ui.grid > .row > .column > img {
-  max-width: 50% !important;
+  max-width: 100% !important;
 }
 
 .ui.grid {

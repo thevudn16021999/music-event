@@ -7,23 +7,28 @@ import {
   Icon,
   List,
   Segment,
+  Image,
 } from "semantic-ui-react";
+import { Media } from "./MediaQuery";
 
 function Footer() {
   return (
-    <Segment inverted vertical style={{ padding: "5em 0em" }}>
+    <Segment inverted vertical style={{ padding: "5em 0em",backgroundColor:"#000" }}>
       <Container>
         <Grid divided inverted stackable>
           <Grid.Row>
-            <Grid.Column width={10}>
+            <Grid.Column width={5}>
+              <img src="../img/logo.png" class="ui fluid image" />
+            </Grid.Column>
+            <Grid.Column width={6}>
               <Header as="h4" inverted>
-                Dreamers
+                Dreamers Concert 
               </Header>
-              <p>
-                Dreamers Concert là chương trình âm nhạc đưa những kẻ mộng mơ
-                say mê âm nhạc đến với nhau, cùng hò reo trong âm nhạc. Dreamers
-                Concert mong muốn tạo ra một chương trình âm nhạc chuyên nghiệp
-                tại Đà Nẵng
+              <p style={{ fontStyle:"italic",fontWeight: "bold"}} > 
+              <Icon name="calendar" />December 05 2020
+              </p>
+              <p><Icon name="map marker" />
+              Nhà thi đấu Quân khu 5, TP Đà Nẵng
               </p>
             </Grid.Column>
             <Grid.Column width={4}>
@@ -37,8 +42,8 @@ function Footer() {
                   <Icon name="facebook f" />
                   /dreamersconcert
                 </List.Item>
-                <List.Item as="a" href="mailto:dreamersconcert@gmail.com">
-                  <Icon name="mail" /> dreamersconcert@gmail.com
+                <List.Item as="a" href="mailto:dreamersconcert.dn@gmail.com">
+                  <Icon name="mail" /> Dreamersconcert.DN@gmail.com
                 </List.Item>
                 <List.Item as="a" href="tel:+84969733929">
                   <Icon name="phone" /> 096 973 39 29
@@ -51,7 +56,7 @@ function Footer() {
         <Segment
           inverted
           textAlign="center"
-          content="Powered by Semantic-UI"
+          content="© 2020 Dreamers Concert. All rights reserved."
         ></Segment>
       </Container>
     </Segment>

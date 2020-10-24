@@ -7,6 +7,7 @@ import Schedule from "./components/Schedule";
 import Tickets from "./components/Tickets";
 import Footer from "./components/Footer";
 import Map from "./components/Map";
+import Faq from "./components/Faq";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./Login";
 import Checkout from "./Checkout";
@@ -40,14 +41,18 @@ function App() {
   return (
     <BrowserRouter>
       <MediaContextProvider>
-        <Switch>
+        <Switch>          
           <Route path="/" exact>
+            <video className='videoTag' autoPlay loop muted>
+              <source src='./img/intro.mp4' type='video/mp4' />
+            </video>
             <Hero />
             <Artists />
             <Schedule />
             <Tickets />
             <Map />
-            <Footer />
+            <Faq />
+            <Footer />            
           </Route>
           <Route path="/profile">
             <Profile />

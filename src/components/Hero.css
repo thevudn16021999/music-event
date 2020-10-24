@@ -1,11 +1,38 @@
+/*Hero*/
+
+/* .ui.secondary.inverted.pointing.menu {
+  border-width:0px;
+  border-bottom-width: 4px !important;
+  border-color: rgb(232 165 241 / 96%);
+  
+} */
+
+.ui.secondary.inverted.pointing.menu{
+  border: none;
+}
+
+.ui.grid{
+  margin-top: 20vh;
+}
+
+.videoTag{
+  height: 100%;
+  width: 100%;
+  /* float: left; */
+  top: 0;
+  padding: 0 !important;
+  position: fixed; 
+  object-fit: cover;
+}
+
+
 .ui.segment.hero {
-  height: 100vh;
-  min-height: 36rem;
+  height: 120vh;
+  min-height: 56rem;
   background-position: center;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-    url("https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.0-9/97282217_680812072482089_4046525634317385728_o.jpg?_nc_cat=110&_nc_sid=730e14&_nc_ohc=RoBdbLlYMBAAX9uBb7h&_nc_ht=scontent.fsgn2-6.fna&oh=ff8e59c4f760a9c8f890d2fc81a67158&oe=5F8448CB");
-  background-attachment: fixed;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), #0a0b0d);
+  /* background-attachment: fixed; */
 }
 .ui.hero .text-header {
   font-size: 2em;
