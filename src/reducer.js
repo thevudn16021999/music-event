@@ -1,4 +1,4 @@
-import { db } from "./firebase";
+// import { db } from "./firebase";
 
 let cartStorage = JSON.parse(localStorage.getItem("cart"));
 
@@ -36,14 +36,26 @@ export const getCartDetail = (cart) => [...cart.keys()];
 
 export const getTicketType = async (ticketType = [], id = null) => {
   if (ticketType.length === 0) {
-    await db
-      .collection("ticketType")
-      .get({ source: "default" })
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          ticketType.push({ id: doc.id, ...doc.data() });
-        });
-      });
+    // await db
+    //   .collection("ticketType")
+    //   .get({ source: "default" })
+    //   .then((querySnapshot) => {
+    //     querySnapshot.forEach((doc) => {
+    //       ticketType.push({ id: doc.id, ...doc.data() });
+    //     });
+    //   });
+    return [
+      {
+        id: "Ktlfada4M0hUSQXzmdj5",
+        name: "Vé Thường",
+        price: 5000000,
+      },
+      {
+        id: "rMlDTF1E3K0ucGl4cgMz",
+        name: "Vé V.I.P",
+        price: 400000,
+      },
+    ];
   }
   if (id !== null) {
     for (const type of ticketType) {

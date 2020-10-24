@@ -1,16 +1,13 @@
 import React from "react";
 import {
-  Card,
   Container,
   Divider,
-  Grid,
   Header,
   Icon,
   Image,
   Segment,
 } from "semantic-ui-react";
 import Coverflow from "react-coverflow";
-import { Media } from "./MediaQuery";
 import "./Artists.css";
 
 function Artists() {

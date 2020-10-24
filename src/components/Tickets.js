@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useEffect } from "react";
 import {
   Container,
@@ -28,7 +28,7 @@ function Tickets() {
         });
       }
     })();
-  }, []);
+  }, [dispatch, ticketType.length]);
 
   const addTicketToCart = (ticket) => {
     dispatch({
@@ -38,7 +38,7 @@ function Tickets() {
   };
 
   return (
-    <Segment vertical padded="very" style={{background:"#dadde6"}}>
+    <Segment vertical padded="very" style={{ background: "#dadde6" }}>
       <Header sub textAlign="center" className="section-header" id="booking">
         Đặt vé
       </Header>

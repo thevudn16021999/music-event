@@ -7,28 +7,36 @@ import {
   Icon,
   List,
   Segment,
-  Image,
 } from "semantic-ui-react";
-import { Media } from "./MediaQuery";
 
 function Footer() {
   return (
-    <Segment inverted vertical style={{ padding: "5em 0em",backgroundColor:"#000" }}>
+    <Segment
+      inverted
+      vertical
+      style={{ padding: "5em 0em", backgroundColor: "#000" }}
+    >
       <Container>
         <Grid divided inverted stackable>
           <Grid.Row>
             <Grid.Column width={5}>
-              <img src="../img/logo.png" class="ui fluid image" />
+              <img
+                src="../img/logo.png"
+                class="ui fluid image"
+                alt="logo dreamerconcert"
+              />
             </Grid.Column>
             <Grid.Column width={6}>
               <Header as="h4" inverted>
-                Dreamers Concert 
+                Dreamers Concert
               </Header>
-              <p style={{ fontStyle:"italic",fontWeight: "bold"}} > 
-              <Icon name="calendar" />December 05 2020
+              <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
+                <Icon name="calendar" />
+                December 05 2020
               </p>
-              <p><Icon name="map marker" />
-              Nhà thi đấu Quân khu 5, TP Đà Nẵng
+              <p>
+                <Icon name="map marker" />
+                Nhà thi đấu Quân khu 5, TP Đà Nẵng
               </p>
             </Grid.Column>
             <Grid.Column width={4}>

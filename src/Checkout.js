@@ -92,7 +92,7 @@ function Checkout() {
     for (const [item, qty] of cart) {
       orders.push({ id: item.id, qty: qty });
     }
-    // db.collection("users").doc(user.id).set(data, { merge: true });
+    db.collection("users").doc(user.id).set(data, { merge: true });
     try {
       const res = await axios.post("/order/create", {
         uid: user.id,
