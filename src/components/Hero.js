@@ -33,7 +33,7 @@ function Hero() {
   ];
 
   useEffect(() => {
-    if (cart.length > 0) {
+    if (cart.size > 0) {
       setPopup(true);
       setTime(3);
     }
@@ -81,9 +81,17 @@ function Hero() {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
               <Navbar.Collapse id="basic-navbar-nav" position="right">
-                <Nav className="mr-auto">
-                  {items.map((item, index) => (
-                    <Nav.Link href={item.href} className="nav-item nav-link">
+                <Nav
+                  className="mr-auto"
+                  style={{ flex: "1", justifyContent: "center" }}
+                >
+                  {items.map((item) => (
+                    <Nav.Link
+                      href={item.href}
+                      key={item.key}
+                      className="nav-item nav-link"
+                      style={{ padding: "10px 20px" }}
+                    >
                       {item.name}
                     </Nav.Link>
                   ))}
@@ -92,7 +100,10 @@ function Hero() {
                   <Grid.Row>Đơn vị tổ chức</Grid.Row>
                   <Image size="tiny" src="img/logo-IM.png" />
                 </Grid>
-                <Grid centered style={{ display: fixed ? "none" : "" }}>
+                <Grid
+                  centered
+                  style={{ display: fixed ? "none" : "", marginTop: "0" }}
+                >
                   <Grid.Row>Bảo trợ truyền thông</Grid.Row>
                   <Image
                     size="tiny"
@@ -124,7 +135,7 @@ function Hero() {
             />
           }
           open={popup}
-          position="bottom center"
+          position="top left"
           content="Bấm vào đây để thanh toán"
         />
         <Grid
