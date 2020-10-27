@@ -50,6 +50,7 @@
 .ui.statistics.countdown {
   margin-top: 2em;
   margin-bottom: 1.5em;
+  font-size: 3em;
 }
 
 @media (max-width: 768px) {
@@ -76,4 +77,24 @@
     margin-top: 5em;
     margin-bottom: 3em;
   }
+}
+
+
+img.ui.tiny.image {
+  margin: 0px;
+}
+
+.ui.large.inverted.pointing.secondary.menu > .ui.container > .right.item > .ui.centered.grid.menuheader a{
+  color: #ffffff !important;
+}
+
+/* @media (max-width: 1200px) {
+  .ui.large.inverted.pointing.secondary.menu > .ui.container > .right.item > .ui.centered.grid.menuheader {
+    display: none;
+  }
+} */
+
+
+.navbar-dark .navbar-nav .nav-link{
+  color: #ffffff !important;
 }

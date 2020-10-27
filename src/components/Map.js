@@ -4,6 +4,7 @@ import { Divider, Header, Icon, Image, Segment } from "semantic-ui-react";
 function Map() {
   return (
     <Segment
+      id="Map"
       inverted
       vertical
       style={{
@@ -21,9 +22,7 @@ function Map() {
           <Icon name="diamond" />
         </Divider>
         <Image.Group size="small">
-          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
           <Image src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-9/49949891_2215632811809434_3224796621342507008_n.jpg?_nc_cat=1&ccb=2&_nc_sid=85a577&_nc_ohc=yRKKfH0VgdUAX_q-Tqm&_nc_ht=scontent.fdad3-1.fna&oh=27995637c0d08ca83ac2d077879aaf56&oe=5FB87150" />
-          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
         </Image.Group>
       </Segment>
       <Segment inverted textAlign="center">

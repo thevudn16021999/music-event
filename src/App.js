@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Artists from "./components/Artists";
 import "./App.css";
 import Hero from "./components/Hero";
+import Description from "./components/Description";
 import { MediaContextProvider } from "./components/MediaQuery";
 import Schedule from "./components/Schedule";
 import Tickets from "./components/Tickets";
@@ -47,10 +48,10 @@ function App() {
               <source src='./img/intro.mp4' type='video/mp4' />
             </video>
             <Hero />
+            <Description/>
             <Artists />
-            <Schedule />
             <Tickets />
-            <Map />
+            <Schedule />
             <Faq />
             <Footer />            
           </Route>

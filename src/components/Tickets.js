@@ -49,14 +49,14 @@ function Tickets() {
           <Icon name="hand spock" />
         </Divider>
       </Container>
-      <Grid container centered stackable columns={2} textAlign="center">
+      <Grid container centered stackable columns={3} textAlign="center">
         {ticketType?.map((ticket) => (
-          <Grid.Row key={ticket.id}>
+          <Grid.Column key={ticket.id}>
             <TicketItem
               {...ticket}
               handleClick={() => addTicketToCart(ticket)}
             />
-          </Grid.Row>
+          </Grid.Column>
         ))}
       </Grid>
     </Segment>

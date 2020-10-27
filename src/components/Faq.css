@@ -23,8 +23,7 @@
 }
 
 #sectionFAQ{
-    background: url(https://dventertainment.vn/assets/images/upload/bg_section__faq.png) no-repeat top fixed transparent;
-    background-size: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), #000000), url(/img/BackFaq.jpg) no-repeat top fixed transparent;
     background-size: cover;
     padding: 60px 0;
 }

@@ -13,22 +13,22 @@ import "./Schedule.css";
 function Schedule() {
   const items = [
     {
-      image: "https://cdn.glitch.com/fe1c1ab8-d567-49ec-93a3-b5aa5437dd9e%2Foptick.png",
       header: "Mở bán vé",
-      description: "Description",
-      meta: "Oct 10 - Oct 31",
+      description: "Description Mở bán vé",
+      time: "00:00 AM",
+      date: "Oct 01 2020 - Oct 30 2020",
     },
     {
-      image: "https://cdn.glitch.com/fe1c1ab8-d567-49ec-93a3-b5aa5437dd9e%2Fcheckin.png",
       header: "Check-in",
-      description: "Description",
-      meta: "12:00 - 19:00 ( 29 / 11 )",
+      description: "Description Check-in",
+      time: "17:00 - 19:00",
+      date: "Dec 05 2020",
     },
     {
-      image: "https://cdn.glitch.com/fe1c1ab8-d567-49ec-93a3-b5aa5437dd9e%2Fclock.svg",
       header: "Xem biểu diễn",
-      description: "Description",
-      meta: "19:30 - ô vờ lai ( 31/11 )",
+      description: "Description Xem biểu diễn",
+      time: "19:00 PM",
+      date: "Dec 05 2020",
     },
   ];
   return (
@@ -37,40 +37,66 @@ function Schedule() {
       vertical
       padded="very"
       style={{
+        background:"linear-gradient(#000000,rgba(0, 0, 0, 0.2)),url(img/map.png)",
+        backgroundSize:"cover",
       }}
-    >
+    >   
+
+      
+      <Segment inverted textAlign="center" id="map">
       <Header sub textAlign="center" className="section-header">
-        Lịch trình
+        Sơ đồ sân khấu
       </Header>
       <Container>
         <Divider inverted horizontal>
           <Icon name="calendar outline" />
         </Divider>
       </Container>
-      <Container>
-        <Grid>
-          {items.map((item, index) => (
-            <Grid.Row key={index}>
-              <Grid.Column width={4}>
-                <Image src={item.image} />
-              </Grid.Column>
-              <Grid.Column width={9} verticalAlign="middle" textAlign="left">
-                <Header inverted size="huge">
-                  {item.header}
-                </Header>
-                <Header inverted sub>
-                  <Icon name="time" /> {item.meta}
-                </Header>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-                tenetur similique quasi nulla nemo sit dicta voluptatibus nobis
-                id fuga. Aliquam, dolor animi maxime magnam quasi sit a eius
-                consequuntur!
-                {/* {item.description} */}
-              </Grid.Column>
-            </Grid.Row>
-          ))}
-        </Grid>
-      </Container>
+      <Image.Group >
+          <Image src="https://dventertainment.vn/assets/images/upload/stadium.svg" />
+        </Image.Group>
+      </Segment>
+      
+      <div id="partner">
+      <Segment inverted textAlign="center">
+        <Header sub textAlign="center" className="section-header">
+          Nhà tài trợ
+        </Header>
+        <Divider inverted horizontal>
+          <Icon name="diamond" />
+        </Divider>
+        <Image.Group size="small">
+          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+        </Image.Group>
+      </Segment>     
+      </div>
+      <Segment inverted textAlign="center">
+        <Header sub textAlign="center" className="section-header">
+          Bảo trợ truyền thông
+        </Header>
+        <Divider inverted horizontal>
+          <Icon name="diamond" />
+        </Divider>
+        <Image.Group size="small">
+          <Image src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-9/49949891_2215632811809434_3224796621342507008_n.jpg?_nc_cat=1&ccb=2&_nc_sid=85a577&_nc_ohc=yRKKfH0VgdUAX_q-Tqm&_nc_ht=scontent.fdad3-1.fna&oh=27995637c0d08ca83ac2d077879aaf56&oe=5FB87150" />
+          <Image src="img/logoEDM.png" />
+          </Image.Group>
+      </Segment>
+      <Segment inverted textAlign="center">
+        <Header sub textAlign="center" className="section-header">
+          Hỗ trợ truyền thông
+        </Header>
+        <Divider inverted horizontal>
+          <Icon name="diamond" />
+        </Divider>
+        <Image.Group size="small">
+          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+        </Image.Group>
+      </Segment>
     </Segment>
   );
 }

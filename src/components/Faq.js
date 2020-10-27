@@ -8,7 +8,7 @@ import {
 import "./Faq.css";
 
 export default class AccordionExampleFluid extends Component {
-  state = { activeIndex: 0 }
+  state = { activeIndex: 9 }
 
   handleClick = (e, titleProps) => {
     const { index } = titleProps
@@ -46,9 +46,9 @@ export default class AccordionExampleFluid extends Component {
           <p>
             Mỗi lần giao dịch chỉ được mua tối đa 02 vé
             </p><p>
-            Vé được phân phối độc quyền trên trang Ticketbox.vn
+            Vé được phân phối độc quyền trên trang website Dreamer Concert và app Viettel Pay
             </p><p>
-            Mọi vấn đề liên quan đến vé sự kiện cần hỗ trợ bạn vui lòng liên hệ tổng đài của Ticket box theo số hotline 028.7300.7998
+            Mọi vấn đề liên quan đến vé sự kiện cần hỗ trợ bạn vui lòng liên hệ 0586.032.585
             </p><p>
             Vui lòng không mua vé từ bất kỳ nguồn nào khác để tránh trường hợp vé giả hoặc lừa đảo, BTC sẽ không chịu trách nhiệm giải quyết các trường hợp này
             </p><p>

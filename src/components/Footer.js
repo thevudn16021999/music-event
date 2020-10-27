@@ -53,8 +53,8 @@ function Footer() {
                 <List.Item as="a" href="mailto:dreamersconcert.dn@gmail.com">
                   <Icon name="mail" /> Dreamersconcert.DN@gmail.com
                 </List.Item>
-                <List.Item as="a" href="tel:+84969733929">
-                  <Icon name="phone" /> 096 973 39 29
+                <List.Item as="a" href="tel:+84586032585">
+                  <Icon name="phone" /> 0586 032 585 
                 </List.Item>
               </List>
             </Grid.Column>
