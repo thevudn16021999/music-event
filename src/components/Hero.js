@@ -1,28 +1,22 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Container,
   Menu,
   Segment,
   Visibility,
-  Icon,
   Grid,
   Popup,
   Image,
-  Header,
-  GridRow,
-  
 } from "semantic-ui-react";
 import Countdown from "./Countdown";
 import "./Hero.css";
 import { useGlobalState } from "../store";
 import { Link } from "react-router-dom";
 import { getTicketQuantity } from "../reducer";
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Hero() {
   const { cart, user } = useGlobalState();
@@ -31,12 +25,12 @@ function Hero() {
   const [time, setTime] = useState(3);
 
   const items = [
-    { key: 'Artlists', name: 'Nghệ Sĩ', href:'#Artlists' , target:"_self"},
-    { key: 'booking', name: 'Đặt Vé', href:'#booking', target:"_self" },
-    { key: 'map', name: 'Sơ Đồ', href:'#map' },
-    { key: 'partner', name: 'Đối Tác', href:'#partner', target:"_top" },
-    { key: 'map', name: 'FAQ', href:'#sectionFAQ', target:"_parent" },
-  ]
+    { key: "Artlists", name: "Nghệ Sĩ", href: "#Artlists", target: "_self" },
+    { key: "booking", name: "Đặt Vé", href: "#booking", target: "_self" },
+    { key: "map", name: "Sơ Đồ", href: "#map" },
+    { key: "partner", name: "Đối Tác", href: "#partner", target: "_top" },
+    { key: "map", name: "FAQ", href: "#sectionFAQ", target: "_parent" },
+  ];
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -60,7 +54,6 @@ function Hero() {
   const showFixedMenu = () => setFixed(true);
   const hideFixedMenu = () => setFixed(false);
 
-
   return (
     <Visibility
       once={false}
@@ -76,47 +69,42 @@ function Hero() {
           size="large"
         >
           <Container>
-            <Navbar variant={fixed ? "light":"dark"} expand="lg" style={{width: "100%"}}>
-                <Navbar.Brand href="/" style={{ fontWeight: "bold" }}>
-                    <Image
-                        size="tiny"
-                        src="img/logo.png"
-                      />
-                </Navbar.Brand>            
-                
-                <Navbar.Toggle aria-controls="basic-navbar-nav"   />
+            <Navbar
+              variant={fixed ? "light" : "dark"}
+              expand="lg"
+              style={{ width: "100%" }}
+            >
+              <Navbar.Brand href="/" style={{ fontWeight: "bold" }}>
+                <Image size="tiny" src="img/logo.png" />
+              </Navbar.Brand>
 
-                <Navbar.Collapse id="basic-navbar-nav" position="right">
-                  <Nav className="mr-auto">
-                    {items.map((item, index) => (
-                        <Nav.Link href={item.href} className="nav-item nav-link">
-                          {item.name}
-                        </Nav.Link>
-                    ))}     
-                  </Nav>                                
-                  <Grid centered style={{ display: fixed ? "none" : "" }}>
-                    <Grid.Row>Đơn vị tổ chức</Grid.Row>
-                        <Image
-                          size="tiny"
-                          src="img/logo-IM.png"
-                        />
-                  </Grid>
-                  <Grid centered style={{ display: fixed ? "none" : "" }}>
-                      <Grid.Row>Bảo trợ truyền thông</Grid.Row>
-                      <Image
-                        size="tiny"
-                        src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-9/49949891_2215632811809434_3224796621342507008_n.jpg?_nc_cat=1&ccb=2&_nc_sid=85a577&_nc_ohc=yRKKfH0VgdUAX_q-Tqm&_nc_ht=scontent.fdad3-1.fna&oh=27995637c0d08ca83ac2d077879aaf56&oe=5FB87150"
-                      />
-                      <Image
-                        size="tiny"
-                        src="img/logoEDM.png"
-                      />
-                  </Grid>
-                </Navbar.Collapse>            
-            </Navbar>               
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+              <Navbar.Collapse id="basic-navbar-nav" position="right">
+                <Nav className="mr-auto">
+                  {items.map((item, index) => (
+                    <Nav.Link href={item.href} className="nav-item nav-link">
+                      {item.name}
+                    </Nav.Link>
+                  ))}
+                </Nav>
+                <Grid centered style={{ display: fixed ? "none" : "" }}>
+                  <Grid.Row>Đơn vị tổ chức</Grid.Row>
+                  <Image size="tiny" src="img/logo-IM.png" />
+                </Grid>
+                <Grid centered style={{ display: fixed ? "none" : "" }}>
+                  <Grid.Row>Bảo trợ truyền thông</Grid.Row>
+                  <Image
+                    size="tiny"
+                    src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-9/49949891_2215632811809434_3224796621342507008_n.jpg?_nc_cat=1&ccb=2&_nc_sid=85a577&_nc_ohc=yRKKfH0VgdUAX_q-Tqm&_nc_ht=scontent.fdad3-1.fna&oh=27995637c0d08ca83ac2d077879aaf56&oe=5FB87150"
+                  />
+                  <Image size="tiny" src="img/logoEDM.png" />
+                </Grid>
+              </Navbar.Collapse>
+            </Navbar>
           </Container>
         </Menu>
-        <Popup 
+        <Popup
           trigger={
             <Button
               as={Link}
@@ -125,7 +113,14 @@ function Hero() {
               primary={fixed}
               icon="cart"
               content={cart.size > 0 ? getTicketQuantity(cart) : null}
-              style={{cursor: "pointer", position: "fixed", right: "20px", bottom: "20px", zIndex: "99999999", width: "72px" }}
+              style={{
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "20px",
+                zIndex: "99999999",
+                width: "72px",
+              }}
             />
           }
           open={popup}
@@ -145,12 +140,8 @@ function Hero() {
           </Container>
         </Grid>
       </Segment>
-      
-        
     </Visibility>
-          
   );
 }
 
-
-export default Hero ;
+export default Hero;

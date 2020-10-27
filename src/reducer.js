@@ -60,7 +60,7 @@ export const getTicketType = async (ticketType = [], id = null) => {
         services: ["- Tặng nón mũ","- Vé vào cổng"],
       },
       {
-        id: "rMlDTF1E3K0ucGl4cgMz",
+        id: "mf9pokVR3QKLi4Ib1EPV",
         name: "Mơ Xa Hoa",
         img: "img/dtXaHoa.jpg",
         price: 499000,

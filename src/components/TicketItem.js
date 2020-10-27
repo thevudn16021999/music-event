@@ -1,12 +1,14 @@
 import React from "react";
-import { Button, Card,Container, Header, Icon, List, Statistic, Image } from "semantic-ui-react";
+import { Button, Card, Container, Icon, Image } from "semantic-ui-react";
 
-
-
-function TicketItem({ name,img, services, price, handleClick }) {
+function TicketItem({ name, img, services, price, handleClick }) {
   return (
     <Container textAlign="center">
-      <Card fluid centered style={{ maxWidth: "28rem", backgroundSize:"cover" }} >
+      <Card
+        fluid
+        centered
+        style={{ maxWidth: "28rem", backgroundSize: "cover" }}
+      >
         {/* <Card.Content style={{ padding: "3rem 2.5rem" }}>
           <Header>{name}</Header>
           <Statistic
@@ -34,7 +36,7 @@ function TicketItem({ name,img, services, price, handleClick }) {
         </Card.Content>
       </Card>
     </Container>
-    
+
     // <div className="card fl-left">
     //   <section className="date">
     //     <Card.Content style={{ padding: "3rem 2.5rem" }}>
@@ -50,8 +52,8 @@ function TicketItem({ name,img, services, price, handleClick }) {
     //     {/* { <Image src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" /> } */}
     //     <div style={{ padding: "3rem 2.5rem" }} className="even-info">
     //       <p>
-    //       <List items={services}></List>  
-    //       </p>          
+    //       <List items={services}></List>
+    //       </p>
     //     </div>
     //     <Button animated onClick={handleClick}>
     //         <Button.Content visible>Đặt vé ngay</Button.Content>
