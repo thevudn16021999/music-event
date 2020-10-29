@@ -7,11 +7,12 @@ import { useGlobalState } from "./store";
 
 function Profile() {
   const history = useHistory();
-  const { user } = useGlobalState();
+  const { user } = useGlobalState(); 
+
   return (
     <>
       <Menu>
-        <Menu.Item>Trang chủ</Menu.Item>
+        <Menu.Item href="/">Trang chủ</Menu.Item>
         <Menu.Item position="right">
           <Button
             onClick={() => {

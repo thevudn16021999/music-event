@@ -50,7 +50,7 @@
 .ui.statistics.countdown {
   margin-top: 2em;
   margin-bottom: 1.5em;
-  font-size: 3em;
+  font-size: 4vh;
 }
 
 @media (max-width: 768px) {

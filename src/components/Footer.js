@@ -21,7 +21,7 @@ function Footer() {
           <Grid.Row>
             <Grid.Column width={5}>
               <img
-                src="../img/logo.png"
+                src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logo.png"
                 className="ui fluid image"
                 alt="logo dreamerconcert"
               />
@@ -32,10 +32,10 @@ function Footer() {
               </Header>
               <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
                 <Icon name="calendar" />
-                December 05 2020
+                Ngày 05 tháng 12 năm 2020
               </p>
               <p>
-                <Icon name="map marker" />
+                <Icon name="map marker alternate" />
                 Nhà thi đấu Quân khu 5, TP Đà Nẵng
               </p>
             </Grid.Column>

@@ -38,15 +38,15 @@ function Tickets() {
   };
 
   return (
-    <Segment vertical padded="very" style={{ background: "#dadde6" }}>
-      <Header sub textAlign="center" className="section-header" id="booking">
+    <Segment vertical padded="very" style={{ background: "#dadde6" }} id="booking">
+      <Header sub textAlign="center" className="section-header" >
         Đặt vé
       </Header>
       <Container>
         <Divider horizontal>
-          <Icon name="hand victory" />
-          <Icon name="hand pointer" />
-          <Icon name="hand spock" />
+          <Icon name="ticket" />
+          <Icon name="ticket" />
+          <Icon name="ticket" />
         </Divider>
       </Container>
       <Grid container centered stackable columns={3} textAlign="center">

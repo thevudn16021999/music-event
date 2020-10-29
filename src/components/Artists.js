@@ -14,23 +14,23 @@ function Artists() {
   const artists = [
     {
       image:
-        "https://cdn.glitch.com/fe1c1ab8-d567-49ec-93a3-b5aa5437dd9e%2FThinhSuy.jpg?v=1601313168463",
+        "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/NS/cahoihang.jpg",
     },
     {
       image:
-        "img/lyly.jpg",
+        "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/NS/lyly.jpg",
     },
     {
       image:
-        "img/vu.jpg",
+        "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/NS/vu.jpg",
     },
     {
       image:
-        "img/dung.jpg",
+        "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/NS/HD.png",
     },
     {
       image:
-        "https://cdn.glitch.com/fe1c1ab8-d567-49ec-93a3-b5aa5437dd9e%2Fcahoihoang.jpg",
+        "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/NS/Chilies.jpg",
     },
   ];
 
@@ -74,7 +74,7 @@ function Artists() {
             key={index}
             src={artist.image}
             className="image"
-            size="big"
+            size="100%"
           />
         ))}
       </Coverflow>

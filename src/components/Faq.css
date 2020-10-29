@@ -23,7 +23,7 @@
 }
 
 #sectionFAQ{
-    background: linear-gradient(rgba(0, 0, 0, 0.2), #000000), url(/img/BackFaq.jpg) no-repeat top fixed transparent;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), #000000), url(https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/BackFaq.jpg) no-repeat top fixed transparent;
     background-size: cover;
     padding: 60px 0;
 }

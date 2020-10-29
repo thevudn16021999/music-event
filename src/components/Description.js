@@ -6,6 +6,7 @@ import {
   Grid,
   Header,
   Icon,
+  Divider,
 } from "semantic-ui-react";
 import "./Hero.css";
 
@@ -36,12 +37,17 @@ function Description() {
               content="Xin Chào"
               inverted
               className="text-header"
-              style={{ color: "rgba(50,51,51,.8)", fontSize: "4rem" }}
+              style={{ color: "rgba(50,51,51,.8)", fontSize: "3rem" }}
             />
-            <p style={{ color: "#da3769", fontSize: "2rem" }}>
+            <Container>
+              <Divider inverted horizontal>
+                <Icon name="hand peace" /><Icon name="hand peace" /><Icon name="hand peace" />
+              </Divider>
+            </Container>
+            <p style={{ color: "#da3769", fontSize: "2vh" }}>
               Những Kẻ Mộng Mơ
             </p>
-            <p style={{ fontSize: "2rem" }}>
+            <p style={{ fontSize: "2.3vh", paddingTop:"1.5vh", paddingBottom:"1.5vh"}}>
               Dreamers Concert là đêm nhạc tổ chức tại Đà Nẵng. Là nơi tập hợp
               và trú ngụ của những kẻ mộng mơ đang đi tìm sự đồng cảm của tâm
               hồn
@@ -50,20 +56,20 @@ function Description() {
               style={{
                 fontStyle: "italic",
                 fontWeight: "bold",
-                fontSize: "2rem",
+                fontSize: "2vh",
               }}
             >
               <Icon name="calendar" />
-              December 05 2020
+              Ngày 05 tháng 12 năm 2020
             </p>
             <p
               style={{
                 fontStyle: "italic",
                 fontWeight: "bold",
-                fontSize: "2rem",
+                fontSize: "2vh",
               }}
             >
-              <Icon name="map marker" />
+              <Icon name="map marker alternate" />
               Nhà thi đấu Quân khu 5, TP Đà Nẵng
             </p>
             <Button primary size="huge" href="#booking">

@@ -24,7 +24,7 @@ export default class AccordionExampleFluid extends Component {
           </Header>
           <Container>
             <Divider inverted horizontal>
-              <Icon name="calendar outline" />
+              <Icon name="help circle" /><Icon name="help circle" /><Icon name="help circle" />
             </Divider>
           </Container>
 
@@ -38,10 +38,8 @@ export default class AccordionExampleFluid extends Component {
               1/ Quy định về phát hành vé
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
-              <p>Mỗi lần giao dịch chỉ được mua tối đa 02 vé</p>
               <p>
-                Vé được phân phối độc quyền trên trang website Dreamer Concert
-                và app Viettel Pay
+                Vé được phân phối độc quyền trên trang website <b>Dreamer Concert</b> và app <b>Viettel Pay</b>
               </p>
               <p>
                 Mọi vấn đề liên quan đến vé sự kiện cần hỗ trợ bạn vui lòng liên

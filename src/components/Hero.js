@@ -28,7 +28,7 @@ function Hero() {
     { key: "Artlists", name: "Nghệ Sĩ", href: "#Artlists", target: "_self" },
     { key: "booking", name: "Đặt Vé", href: "#booking", target: "_self" },
     { key: "map", name: "Sơ Đồ", href: "#map" },
-    { key: "partner", name: "Đối Tác", href: "#partner", target: "_top" },
+    { key: "partner", name: "Đối Tác", href: "#partner", target: "_parent" },
     { key: "faq", name: "FAQ", href: "#sectionFAQ", target: "_parent" },
   ];
 
@@ -75,7 +75,7 @@ function Hero() {
               style={{ width: "100%" }}
             >
               <Navbar.Brand href="/" style={{ fontWeight: "bold" }}>
-                <Image size="tiny" src="img/logo.png" />
+                <Image size="tiny" src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logo.png" />
               </Navbar.Brand>
 
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -88,6 +88,7 @@ function Hero() {
                   {items.map((item) => (
                     <Nav.Link
                       href={item.href}
+                      target={item.target}
                       key={item.key}
                       className="nav-item nav-link"
                       style={{ padding: "10px 20px" }}
@@ -98,7 +99,7 @@ function Hero() {
                 </Nav>
                 <Grid centered style={{ display: fixed ? "none" : "" }}>
                   <Grid.Row>Đơn vị tổ chức</Grid.Row>
-                  <Image size="tiny" src="img/logo-IM.png" />
+                  <Image size="tiny" src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logo-IM.png" />
                 </Grid>
                 <Grid
                   centered
@@ -107,9 +108,10 @@ function Hero() {
                   <Grid.Row>Bảo trợ truyền thông</Grid.Row>
                   <Image
                     size="tiny"
-                    src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-9/49949891_2215632811809434_3224796621342507008_n.jpg?_nc_cat=1&ccb=2&_nc_sid=85a577&_nc_ohc=yRKKfH0VgdUAX_q-Tqm&_nc_ht=scontent.fdad3-1.fna&oh=27995637c0d08ca83ac2d077879aaf56&oe=5FB87150"
+                    src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoMTV.jpg"
                   />
-                  <Image size="tiny" src="img/logoEDM.png" />
+                  <Image size="tiny" src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoCD.png" />
+                  <Image size="tiny" src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoEDM.png" />
                 </Grid>
               </Navbar.Collapse>
             </Navbar>

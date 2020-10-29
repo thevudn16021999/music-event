@@ -44,7 +44,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <video className="videoTag" autoPlay loop muted>
-              <source src="./img/intro.mp4" type="video/mp4" />
+              <source src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/intro.mp4" type="video/mp4" />
             </video>
             <Hero />
             <Description />
