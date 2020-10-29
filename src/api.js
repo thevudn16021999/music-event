@@ -25,7 +25,10 @@ export const callPayment = (paymentInfo) => {
   paymentURL.searchParams.append("login_msisdn", login_msisdn);
   paymentURL.searchParams.append("merchant_code", MERCHANT_CODE);
   paymentURL.searchParams.append("check_sum", check_sum);
-  paymentURL.searchParams.append("return_url", "http://localhost:3000/confirm");
+  paymentURL.searchParams.append(
+    "return_url",
+    "https://dreamersconcert.com/confirm"
+  );
   console.log(paymentURL.href);
 };
 

@@ -11,11 +11,21 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json());
 
+function checksum(string) {
+  const access_code = "1234";
+  const merchant_code = "DLTS14";
+  const check_sum = crypto
+    .createHmac("sha1", "1234567")
+    .update(access_code + string, "utf8")
+    .digest();
+  return check_sum;
+}
+
 app.post("/order/create", async (req, res) => {
   const uid = req.body.uid;
   const orders = req.body.order;
 
-  if (!(uid && orders?.length > 0)) {
+  if (!(uid && orders && orders.length > 0)) {
     res.status(400).send({ error: "Missing Fields" });
     return;
   }
@@ -38,8 +48,8 @@ app.post("/order/create", async (req, res) => {
       const fetch = await ticketTypeRef.get();
       details.push({ ...fetch.data(), tickets: tickets });
 
-      // Tính giá tiền
-      ticketTypeRef.set({ price: 50000, name: "Abc" });
+      // // Tính giá tiền
+      // ticketTypeRef.set({ price: 50000, name: "Abc" });
       const ticketTypeDoc = await ticketTypeRef.get();
       const ticketTypeData = ticketTypeDoc.data();
       cost += ticketTypeData.price * item.qty;
@@ -78,6 +88,17 @@ app.post("/order/create", async (req, res) => {
     console.log(e);
     res.status(500).send({ error: "Server Error" });
   }
+});
+
+app.post("/payment/verify", async (req, res) => {
+  const { billcode, merchant_code, order_id, check_sum } = req.body;
+  let error_code = "02";
+  // const check_sum = checksum(billcode + error_code + merchant_code + order_id);
+  res.status(200).send({ error: "Not Implemented! :D" });
+});
+
+app.post("/payment/confirm", async (req, res) => {
+  res.status(200).send({ error: "Not Implemented! :D" });
 });
 
 exports.api = functions.https.onRequest(app);

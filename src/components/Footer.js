@@ -22,7 +22,7 @@ function Footer() {
             <Grid.Column width={5}>
               <img
                 src="../img/logo.png"
-                class="ui fluid image"
+                className="ui fluid image"
                 alt="logo dreamerconcert"
               />
             </Grid.Column>
@@ -54,7 +54,7 @@ function Footer() {
                   <Icon name="mail" /> Dreamersconcert.DN@gmail.com
                 </List.Item>
                 <List.Item as="a" href="tel:+84586032585">
-                  <Icon name="phone" /> 0586 032 585 
+                  <Icon name="phone" /> 0586 032 585
                 </List.Item>
               </List>
             </Grid.Column>

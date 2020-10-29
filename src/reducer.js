@@ -1,9 +1,10 @@
 // import { db } from "./firebase";
 
-let cartStorage = JSON.parse(localStorage.getItem("cart"));
+// let cartStorage = JSON.parse(localStorage.getItem("cart"));
 
 export const initialState = {
-  cart: new Map(cartStorage),
+  // cart: new Map(cartStorage),
+  cart: new Map(),
   ticketType: [],
   user: null,
 };
@@ -50,21 +51,21 @@ export const getTicketType = async (ticketType = [], id = null) => {
         name: "Mơ Sớm",
         img: "img/dtEB.jpg",
         price: 279000,
-        services: ["- Tặng nón mũ","- Vé vào cổng"],
+        services: ["- Tặng nón mũ", "- Vé vào cổng"],
       },
       {
         id: "rMlDTF1E3K0ucGl4cgMz",
         name: "Mơ Điêu",
         img: "img/dtDieu.jpg",
         price: 319000,
-        services: ["- Tặng nón mũ","- Vé vào cổng"],
+        services: ["- Tặng nón mũ", "- Vé vào cổng"],
       },
       {
         id: "mf9pokVR3QKLi4Ib1EPV",
         name: "Mơ Xa Hoa",
         img: "img/dtXaHoa.jpg",
         price: 499000,
-        services: ["- Tặng nón mũ","- Vé vào cổng"],
+        services: ["- Tặng nón mũ", "- Vé vào cổng"],
       },
     ];
   }
@@ -91,7 +92,7 @@ const reducer = (state, action) => {
       } else {
         newCart.set(item, 1);
       }
-      localStorage.setItem("cart", JSON.stringify(Array.from(newCart)));
+      // localStorage.setItem("cart", JSON.stringify(Array.from(newCart)));
 
       return {
         ...state,
@@ -100,7 +101,7 @@ const reducer = (state, action) => {
     }
 
     case ACTION.CLEAR_CART: {
-      localStorage.removeItem("cart");
+      // localStorage.removeItem("cart");
       return {
         ...state,
         cart: new Map(),
@@ -122,7 +123,7 @@ const reducer = (state, action) => {
         console.warn(`Cant remove product (id: ${item}) as its not in cart!`);
       }
 
-      localStorage.setItem("cart", JSON.stringify(Array.from(newCart)));
+      // localStorage.setItem("cart", JSON.stringify(Array.from(newCart)));
 
       return {
         ...state,

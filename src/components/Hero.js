@@ -29,7 +29,7 @@ function Hero() {
     { key: "booking", name: "Đặt Vé", href: "#booking", target: "_self" },
     { key: "map", name: "Sơ Đồ", href: "#map" },
     { key: "partner", name: "Đối Tác", href: "#partner", target: "_top" },
-    { key: "map", name: "FAQ", href: "#sectionFAQ", target: "_parent" },
+    { key: "faq", name: "FAQ", href: "#sectionFAQ", target: "_parent" },
   ];
 
   useEffect(() => {
@@ -122,7 +122,7 @@ function Hero() {
               to={user ? "/checkout" : "/login"}
               inverted={!fixed}
               primary={fixed}
-              icon="cart"
+              icon="ticket alternate"
               content={cart.size > 0 ? getTicketQuantity(cart) : null}
               style={{
                 cursor: "pointer",
@@ -130,12 +130,11 @@ function Hero() {
                 right: "20px",
                 bottom: "20px",
                 zIndex: "99999999",
-                width: "72px",
               }}
             />
           }
           open={popup}
-          position="top left"
+          position="left center"
           content="Bấm vào đây để thanh toán"
         />
         <Grid

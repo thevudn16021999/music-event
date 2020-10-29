@@ -1,13 +1,11 @@
-import { auth, db, firebase } from "./firebase";
+import { auth, firebase } from "./firebase";
 import React, { useEffect, useState } from "react";
 import { Button, Form, Grid, Header, Icon, Segment } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
-import { useGlobalDispatch, useGlobalState } from "./store";
-import { ACTION } from "./reducer";
+import { useGlobalState } from "./store";
 
 function Login() {
   const { cart, user } = useGlobalState();
-  const dispatch = useGlobalDispatch();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -27,25 +25,7 @@ function Login() {
     auth
       .signInWithPopup(provider)
       .then(function (result) {
-        const { displayName, email, uid } = result.user;
-        const userData = { name: displayName, email: email };
-        const userRef = db.collection("users").doc(uid);
-        userRef
-          .get()
-          .then((doc) => {
-            if (doc.exists) {
-              dispatch({
-                type: ACTION.SET_USER,
-                user: { ...doc.data() },
-              });
-            } else {
-              userRef.set(userData, { merge: true });
-              dispatch({ type: ACTION.SET_USER, user: userData });
-            }
-          })
-          .finally(() => {
-            history.push("/checkout");
-          });
+        history.push("/checkout");
       })
       .catch((error) => console.log(error))
       .finally(() => {

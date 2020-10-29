@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
 import {
   Button,
   Form,
@@ -10,29 +10,37 @@ import {
   Item,
   Message,
 } from "semantic-ui-react";
-import { db } from "./firebase";
+import {db} from "./firebase";
 import {
   ACTION,
   getCartDetail,
   getCartTotalCost,
   getTicketQuantity,
 } from "./reducer";
-import { useGlobalDispatch, useGlobalState } from "./store";
-import { currencyFormat } from "./util";
-import axios, { callPayment } from "./api";
+import {useGlobalDispatch, useGlobalState} from "./store";
+import {currencyFormat} from "./util";
+import axios, {callPayment} from "./api";
 
 const genderOptions = [
-  { key: "m", text: "Nam", value: "male" },
-  { key: "f", text: "Nữ", value: "female" },
-  { key: "o", text: "Khác", value: "other" },
+  {key: "m", text: "Nam", value: "male"},
+  {key: "f", text: "Nữ", value: "female"},
+  {key: "o", text: "Khác", value: "other"},
 ];
 
 function Checkout() {
-  const { cart, user } = useGlobalState();
+  const {cart, user} = useGlobalState();
   const dispatch = useGlobalDispatch();
   const tickets = getCartDetail(cart);
   const history = useHistory();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      if (cart.size === 0) {
+        history.push("/profile");
+      }
+    }
+  });
 
   useEffect(() => {
     if (!user) {
@@ -41,16 +49,18 @@ function Checkout() {
       if (!user.gender || !user.age || !user.phone)
         db.collection("users")
           .doc(user.id)
-          .get({ source: "default" })
+          .get({source: "default"})
           .then((doc) => {
-            dispatch({
-              type: ACTION.SET_USER,
-              user: { id: doc.id, ...doc.data() },
-            });
+            if (doc.exists) {
+              dispatch({
+                type: ACTION.SET_USER,
+                user: {id: doc.id, ...doc.data()},
+              });
+            }
           })
           .catch((e) => console.log(e));
     }
-  }, []);
+  }, [user, history, dispatch]);
 
   const addItem = (item) => {
     dispatch({
@@ -68,14 +78,14 @@ function Checkout() {
 
   const isCheck = (cond) => {
     if (cond) {
-      return { name: "check", color: "green" };
+      return {name: "check", color: "green"};
     } else {
-      return { name: "x", color: "red" };
+      return {name: "x", color: "red"};
     }
   };
 
-  const handleChange = (e, { name, value }) => {
-    dispatch({ type: ACTION.SET_USER, user: { ...user, [name]: value } });
+  const handleChange = (e, {name, value}) => {
+    dispatch({type: ACTION.SET_USER, user: {...user, [name]: value}});
   };
 
   const handleSubmit = async (e) => {
@@ -90,9 +100,9 @@ function Checkout() {
     };
     let orders = [];
     for (const [item, qty] of cart) {
-      orders.push({ id: item.id, qty: qty });
+      orders.push({id: item.id, qty: qty});
     }
-    db.collection("users").doc(user.id).set(data, { merge: true });
+    db.collection("users").doc(user.id).set(data, {merge: true});
     try {
       const res = await axios.post("/order/create", {
         uid: user.id,
@@ -100,7 +110,7 @@ function Checkout() {
       });
       console.log(res);
       if (res.status === 200) {
-        callPayment({ ...res.data, login_msisdn: user.phone });
+        callPayment({...res.data, login_msisdn: user.phone});
       }
     } catch (e) {
       console.log(e);
@@ -112,7 +122,7 @@ function Checkout() {
   return (
     <Grid
       // textAlign="center"
-      style={{ minHeight: "53vh" }}
+      style={{minHeight: "53vh"}}
       verticalAlign="middle"
       container
       stackable
@@ -131,8 +141,8 @@ function Checkout() {
               placeholder="Nguyễn Văn A"
               onChange={handleChange}
               required
-              // readOnly
-              // icon={isCheck(true)}
+            // readOnly
+            // icon={isCheck(true)}
             />
           </Form.Group>
           <Form.Group widths="equal">
@@ -183,7 +193,7 @@ function Checkout() {
               icon={isCheck(true)}
             />
           </Form.Group>
-          <Link to={"/"} style={{ color: "red" }}>
+          <Link to={"/"} style={{color: "red"}}>
             <Icon name="arrow left" />
             Trở về Trang Chủ
           </Link>
@@ -202,7 +212,7 @@ function Checkout() {
       <Grid.Column>
         <Message>
           <Item.Group divided>
-            {tickets.map((item, index) => (
+            {tickets.map((item) => (
               <Item key={item.id}>
                 <Item.Content>
                   <Item.Header>{item.name}</Item.Header>
