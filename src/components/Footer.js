@@ -36,7 +36,7 @@ function Footer() {
               </p>
               <p>
                 <Icon name="map marker alternate" />
-                Nhà thi đấu Quân khu 5, TP Đà Nẵng
+                Nhà thi đấu Quân khu 5, 07 Duy Tân, Hải Châu, TP Đà Nẵng
               </p>
             </Grid.Column>
             <Grid.Column width={4}>

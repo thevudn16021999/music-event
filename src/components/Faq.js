@@ -24,7 +24,9 @@ export default class AccordionExampleFluid extends Component {
           </Header>
           <Container>
             <Divider inverted horizontal>
-              <Icon name="help circle" /><Icon name="help circle" /><Icon name="help circle" />
+              <Icon name="help circle" />
+              <Icon name="help circle" />
+              <Icon name="help circle" />
             </Divider>
           </Container>
 
@@ -39,7 +41,12 @@ export default class AccordionExampleFluid extends Component {
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
               <p>
-                Vé được phân phối độc quyền trên trang website <b>Dreamer Concert</b> và app <b>Viettel Pay</b>
+                Mỗi lần giao dịch chỉ được mua tối đa{" "}
+                <b>10 vé/1 lần giao dịch</b>.
+              </p>
+              <p>
+                Vé được phân phối độc quyền trên trang website{" "}
+                <b>Dreamers Concert</b>
               </p>
               <p>
                 Mọi vấn đề liên quan đến vé sự kiện cần hỗ trợ bạn vui lòng liên
@@ -73,8 +80,9 @@ export default class AccordionExampleFluid extends Component {
             <Accordion.Content active={activeIndex === 1}>
               <p>
                 Không quay phim/live stream các tiết mục trong đêm biểu diễn
-                dưới mọi hình thức. Ban tổ chức (BTC) có quyền yêu cầu người vi
-                phạm ra khỏi khu vực sự kiện và không hoàn trả tiền vé.
+                bằng <b>thiết bị chuyên nghiệp</b>. Ban tổ chức (BTC) có quyền
+                yêu cầu người vi phạm ra khỏi khu vực sự kiện và không hoàn trả
+                tiền vé.
               </p>
               <p>
                 Vui lòng xếp hàng trật tự khi tiến hành soát vé. Tuyệt đối không
@@ -146,8 +154,8 @@ export default class AccordionExampleFluid extends Component {
                 ngôn từ không phù hợp thuần phong mỹ tục.
               </p>
               <p>
-                Máy tính bảng/iPad/GoPro/ống kính chuyên nghiệp/thiết bị chụp
-                ảnh chuyên nghiệp/thiết bị ghi hình và thu âm chuyên nghiệp.
+                GoPro/ống kính chuyên nghiệp/thiết bị chụp ảnh chuyên
+                nghiệp/thiết bị ghi hình và thu âm chuyên nghiệp.
               </p>
               <p>Các động vật hoặc thú nuôi.</p>
               <p>Bật lửa/hộp quẹt/nến/pháo bông và các chất phát nổ.</p>
@@ -155,7 +163,6 @@ export default class AccordionExampleFluid extends Component {
                 Các loại chai, lọ và vật liệu làm bằng nhôm, thiếc, thủy tinh
                 hay nhựa cứng.
               </p>
-              <p>Đồ uống, thức ăn, ghế ngồi từ bên ngoài buổi diễn</p>
             </Accordion.Content>
           </Accordion>
         </div>

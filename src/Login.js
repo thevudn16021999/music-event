@@ -17,7 +17,7 @@ function Login() {
         history.push("/profile");
       }
     }
-  });
+  }, [user, cart.size, history]);
 
   const authGoogle = () => {
     setLoading(true);

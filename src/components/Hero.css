@@ -15,19 +15,9 @@
   margin-top: 20vh;
 }
 
-.videoTag{
-  height: 100%;
-  width: 100%;
-  /* float: left; */
-  top: 0;
-  padding: 0 !important;
-  position: fixed; 
-  object-fit: cover;
-}
-
 
 .ui.segment.hero {
-  height: 120vh;
+  height: 100vh;
   min-height: 56rem;
   background-position: center;
   background-size: cover;

@@ -4,3 +4,19 @@
     background-repeat: round;
     
 } */
+
+
+.cardticket {
+    position: relative;
+    display: inline-block;
+}
+.cardticket .img-top {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.cardticket:hover .img-top {
+    display: inline;
+}

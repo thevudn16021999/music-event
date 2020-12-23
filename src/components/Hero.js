@@ -75,7 +75,10 @@ function Hero() {
               style={{ width: "100%" }}
             >
               <Navbar.Brand href="/" style={{ fontWeight: "bold" }}>
-                <Image size="tiny" src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logo.png" />
+                <Image
+                  size="tiny"
+                  src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logo.png"
+                />
               </Navbar.Brand>
 
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -99,9 +102,12 @@ function Hero() {
                 </Nav>
                 <Grid centered style={{ display: fixed ? "none" : "" }}>
                   <Grid.Row>Đơn vị tổ chức</Grid.Row>
-                  <Image size="tiny" src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logo-IM.png" />
+                  <Image
+                    size="tiny"
+                    src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logo-IM.png"
+                  />
                 </Grid>
-                <Grid
+                {/* <Grid
                   centered
                   style={{ display: fixed ? "none" : "", marginTop: "0" }}
                 >
@@ -112,7 +118,7 @@ function Hero() {
                   />
                   <Image size="tiny" src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoCD.png" />
                   <Image size="tiny" src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoEDM.png" />
-                </Grid>
+                </Grid> */}
               </Navbar.Collapse>
             </Navbar>
           </Container>
@@ -122,10 +128,11 @@ function Hero() {
             <Button
               as={Link}
               to={user ? "/checkout" : "/login"}
-              inverted={!fixed}
+              color="blue"
+              size="huge"
               primary={fixed}
-              icon="ticket alternate"
-              content={cart.size > 0 ? getTicketQuantity(cart) : null}
+              icon="cart"
+              content={cart.size > 0 ? getTicketQuantity(cart) : "Giỏ hàng"}
               style={{
                 cursor: "pointer",
                 position: "fixed",
@@ -147,9 +154,13 @@ function Hero() {
             marginTop: "12vh",
           }}
         >
-          <Container text>
-            <Countdown date="Dec 05 2020 00:00:00 GMT+0700" />
-          </Container>
+          {Date.now() < Date.parse("Dec 05 2020 16:30:00 GMT+0700") ? (
+            <Container text>
+              <Countdown date="Dec 05 2020 16:30:00 GMT+0700" />
+            </Container>
+          ) : (
+            ""
+          )}
         </Grid>
       </Segment>
     </Visibility>

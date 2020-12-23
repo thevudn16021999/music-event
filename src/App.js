@@ -12,11 +12,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./Login";
 import Checkout from "./Checkout";
 import Steps from "./components/Steps";
-import { Confirm } from "semantic-ui-react";
+import CheckVe from "./CheckVe";
 import { auth } from "./firebase";
 import { useGlobalDispatch } from "./store";
 import { ACTION } from "./reducer";
 import Profile from "./Profile";
+import Confirm from "./Confirm";
+import ScanVe from "./ScanVe";
 
 function App() {
   const dispatch = useGlobalDispatch();
@@ -29,14 +31,13 @@ function App() {
           user: { id: user.uid, name: user.displayName, email: user.email },
         });
       } else {
-        // logout user
         dispatch({
           type: ACTION.SET_USER,
           user: null,
         });
       }
     });
-  });
+  }, []);
 
   return (
     <BrowserRouter>
@@ -44,12 +45,15 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <video className="videoTag" autoPlay loop muted>
-              <source src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/intro.mp4" type="video/mp4" />
+              <source
+                src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/intro.mp4"
+                type="video/mp4"
+              />
             </video>
             <Hero />
             <Description />
             <Artists />
-            <Tickets />
+            {/* <Tickets /> */}
             <Schedule />
             <Faq />
             <Footer />
@@ -59,6 +63,12 @@ function App() {
           </Route>
           <Route path="/admin">
             <h1>Hello World!</h1>
+          </Route>
+          <Route path="/checkveveve" exact>
+            <CheckVe />
+          </Route>
+          <Route path="/scnave" exact>
+            <ScanVe />
           </Route>
           <Route path="/login">
             <Steps step={0} />
@@ -71,6 +81,9 @@ function App() {
           <Route path="/confirm">
             <Steps step={2} />
             <Confirm />
+          </Route>
+          <Route path="/">
+            <h1>Đii đâu đây, quay lại mua vé đi</h1>
           </Route>
         </Switch>
       </MediaContextProvider>

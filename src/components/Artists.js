@@ -9,6 +9,8 @@ import {
 } from "semantic-ui-react";
 import Coverflow from "react-coverflow";
 import "./Artists.css";
+import { Media } from "./MediaQuery";
+import LazyLoad from "react-lazyload";
 
 function Artists() {
   const artists = [
@@ -30,7 +32,11 @@ function Artists() {
     },
     {
       image:
-        "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/NS/Chilies.jpg",
+        "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/NS/Chilies.png",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/NS/NSBM.jpg",
     },
   ];
 
@@ -53,31 +59,53 @@ function Artists() {
           <Icon name="music" />
         </Divider>
       </Container>
-      <Coverflow
-        displayQuantityOfSide={3}
-        navigation={false}
-        infiniteScroll
-        enableHeading={false}
-        media={{
-          "@media (max-width: 900px)": {
-            width: "100%",
-            height: "300px",
-          },
-          "@media (min-width: 900px)": {
-            width: "100%",
-            height: "600px",
-          },
-        }}
-      >
-        {artists.map((artist, index) => (
-          <Image
-            key={index}
-            src={artist.image}
-            className="image"
-            size="100%"
-          />
-        ))}
-      </Coverflow>
+      <Media greaterThanOrEqual="md">
+        <Coverflow
+          displayQuantityOfSide={2}
+          enableScroll={true}
+          clickable={true}
+          active={0}
+          enableHeading={false}
+          media={{
+            "@media (max-width: 900px)": {
+              width: "100%",
+              height: "300px",
+            },
+            "@media (min-width: 900px)": {
+              width: "100%",
+              height: "600px",
+            },
+          }}
+        >
+          {artists.map((artist, index) => (
+            <LazyLoad key={index}>
+              <Image src={artist.image} className="image" />
+            </LazyLoad>
+          ))}
+        </Coverflow>
+      </Media>
+      <Media at="xs">
+        <Container text textAlign="center">
+          <Image.Group size="tiny">
+            {artists.map((artist, index) => (
+              <LazyLoad key={index} style={{ display: "inline-block" }}>
+                <Image src={artist.image} key={index} />
+              </LazyLoad>
+            ))}
+          </Image.Group>
+        </Container>
+      </Media>
+      <Media at="sm">
+        <Container text textAlign="center">
+          <Image.Group size="small">
+            {artists.map((artist, index) => (
+              <LazyLoad key={index} style={{ display: "inline-block" }}>
+                <Image src={artist.image} key={index} />
+              </LazyLoad>
+            ))}
+          </Image.Group>
+        </Container>
+      </Media>
     </Segment>
   );
 }

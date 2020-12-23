@@ -70,7 +70,7 @@ function Description() {
               }}
             >
               <Icon name="map marker alternate" />
-              Nhà thi đấu Quân khu 5, TP Đà Nẵng
+              Nhà thi đấu Quân khu 5, 07 Duy Tân, Hải Châu, TP Đà Nẵng
             </p>
             <Button primary size="huge" href="#booking">
               Đặt vé ngay

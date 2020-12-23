@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from "react-lazyload";
 import {
   Container,
   Divider,
@@ -31,56 +32,78 @@ function Schedule() {
           </Divider>
         </Container>
         <Image.Group>
-          <Image src="https://dventertainment.vn/assets/images/upload/stadium.svg" />
+          <LazyLoad>
+            <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/SODO.jpg" />
+          </LazyLoad>
         </Image.Group>
       </Segment>
 
-      
-      <Segment inverted textAlign="center"  id="partner" style={{paddingTop:"6vh"}}>
+      <Segment
+        inverted
+        textAlign="center"
+        id="partner"
+        style={{ paddingTop: "6vh" }}
+      >
+        <Header sub textAlign="center" className="section-header">
+          Đối tác
+        </Header>
+        <Container>
+          <Divider inverted horizontal>
+            <Icon name="diamond" />
+          </Divider>
+        </Container>
+        <Image.Group size="tiny">
+          <Image src="https://i.imgur.com/ulCIwQu.png" />
+          <Image src="https://i.imgur.com/eeu3LHK.jpg" />
+        </Image.Group>
+      </Segment>
+
+      <Segment inverted textAlign="center">
         <Header sub textAlign="center" className="section-header">
           Bảo trợ truyền thông
         </Header>
-          <Container>
-            <Divider inverted horizontal>
-              <Icon name="diamond" />
-            </Divider>
-          </Container>
-        <Image.Group size="small">
+        <Container>
+          <Divider inverted horizontal>
+            <Icon name="diamond" />
+          </Divider>
+        </Container>
+        <Image.Group size="tiny">
           <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoMTV.jpg" />
+          <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoTodaytv.png" />
+          <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoYoutv.png" />
           <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoCD.png" />
           <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoEDM.png" />
-          
         </Image.Group>
       </Segment>
 
-      <Segment inverted textAlign="center" >
+      <Segment inverted textAlign="center">
         <Header sub textAlign="center" className="section-header">
           Hỗ trợ truyền thông
         </Header>
-          <Container>
-            <Divider inverted horizontal>
-              <Icon name="diamond" />
-            </Divider>
-          </Container>
-        <Image.Group size="small">
+        <Container>
+          <Divider inverted horizontal>
+            <Icon name="diamond" />
+          </Divider>
+        </Container>
+        <Image.Group size="tiny">
           <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoTPcfs.JPG" />
         </Image.Group>
       </Segment>
 
       <Segment inverted textAlign="center">
-          <Header sub textAlign="center" className="section-header">
-            Tài trợ vật phẩm
-          </Header>
-          <Container>
-            <Divider inverted horizontal>
-              <Icon name="diamond" />
-            </Divider>
-          </Container>
-          <Image.Group size="small">
-            <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoScof.png" />
-          </Image.Group>
-        </Segment>
-
+        <Header sub textAlign="center" className="section-header">
+          Tài trợ vật phẩm
+        </Header>
+        <Container>
+          <Divider inverted horizontal>
+            <Icon name="diamond" />
+          </Divider>
+        </Container>
+        <Image.Group size="tiny">
+          <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoTCH.png" />
+          <Image src="https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/logo/logoScof.png" />
+        </Image.Group>
+      </Segment>
     </Segment>
   );
 }

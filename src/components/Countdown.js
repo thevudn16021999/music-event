@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Statistic } from "semantic-ui-react";
 
-function Countdown({ date }) {
+function Countdown({ date, inverted = true }) {
   const [countdown, SetCountdown] = useState([]);
   date = new Date(date);
   //   console.log("date", date);
@@ -46,7 +46,7 @@ function Countdown({ date }) {
   });
 
   return (
-    <Statistic.Group inverted widths="4" className="countdown">
+    <Statistic.Group inverted={inverted} widths="4" className="countdown">
       {countdown.map((stat, index) => (
         <Statistic key={index} label={stat.key} value={stat.value} />
       ))}

@@ -1,4 +1,4 @@
-// import { db } from "./firebase";
+import { db } from "./firebase";
 
 // let cartStorage = JSON.parse(localStorage.getItem("cart"));
 
@@ -7,6 +7,7 @@ export const initialState = {
   cart: new Map(),
   ticketType: [],
   user: null,
+  tickets: [],
 };
 
 export const ACTION = {
@@ -15,6 +16,7 @@ export const ACTION = {
   REMOVE_FROM_CART: 3,
   SET_USER: 4,
   LOAD_TICKETTYPE: 5,
+  LOAD_TICKETS: 6,
 };
 
 export const getCartTotalCost = (cart) => {
@@ -33,37 +35,78 @@ export const getTicketQuantity = (cart, item = null) => {
   }
 };
 
+export const getOrderByPhone = async (phone) => {
+  if (phone === "") return [];
+  let orders = [];
+  await db
+    .collection("orders")
+    .where("userPhone", "==", phone)
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        orders.push({ ...doc.data(), id: doc.id });
+      });
+    });
+  return orders;
+};
+
+export const getOrderByEmail = async (email) => {
+  if (email === "") return [];
+  let orders = [];
+  await db
+    .collection("orders")
+    .where("email", "==", email)
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        orders.push({ ...doc.data(), id: doc.id });
+      });
+    });
+  return orders;
+};
+
 export const getCartDetail = (cart) => [...cart.keys()];
 
 export const getTicketType = async (ticketType = [], id = null) => {
   if (ticketType.length === 0) {
-    // await db
-    //   .collection("ticketType")
-    //   .get({ source: "default" })
-    //   .then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //       ticketType.push({ id: doc.id, ...doc.data() });
-    //     });
-    //   });
     return [
+      {
+        id: "Ktlfada4M0hUSQXzmdj5-combo",
+        name: "Mơ Sớm Combo 5 vé",
+        img:
+          "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtcombo.jpg",
+        imgFont:
+          "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtEBFont.jpg",
+        price: 1200000,
+        services: ["- Vé vào cổng"],
+      },
       {
         id: "Ktlfada4M0hUSQXzmdj5",
         name: "Mơ Sớm",
-        img: "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtEB.jpg",
+        img:
+          "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtEB.jpg",
+        imgFont:
+          "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtEBFont.jpg",
         price: 279000,
-        services: ["- Tặng nón mũ", "- Vé vào cổng"],
+        services: ["- Vé vào cổng"],
       },
       {
         id: "rMlDTF1E3K0ucGl4cgMz",
         name: "Mơ Điêu",
-        img: "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtDieu.jpg",
+        img:
+          "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtDieu.jpg",
+        imgFont:
+          "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtDieuFont.jpg",
         price: 319000,
-        services: ["- Tặng nón mũ", "- Vé vào cổng"],
+        services: ["- Vé vào cổng"],
       },
       {
         id: "mf9pokVR3QKLi4Ib1EPV",
         name: "Mơ Xa Hoa",
-        img: "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtXaHoa.jpg",
+        img:
+          "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtXaHoa.jpg",
+        imgFont:
+          "https://raw.githubusercontent.com/DreamersConcert/SourceDC/main/img/ticket/dtXaHoaFont.jpg",
         price: 499000,
         services: ["- Tặng nón mũ", "- Vé vào cổng"],
       },
@@ -78,6 +121,37 @@ export const getTicketType = async (ticketType = [], id = null) => {
   } else {
     return ticketType;
   }
+};
+
+export const getOrderOfUser = async (uid) => {
+  let userRef = db.collection("users").doc(uid);
+  let orders = [];
+  await db
+    .collection("orders")
+    .where("uid", "==", userRef)
+    .where("paid", "==", false)
+    .get({ source: "default" })
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        orders.push({ ...doc.data(), id: doc.id });
+      });
+    });
+  return orders.length > 0 ? orders[0] : false;
+};
+
+export const getTicketOfUser = async (uid) => {
+  // let userRef = db.collection("users").doc(uid);
+  let tickets = [];
+  await db
+    .collection("tickets")
+    .where("uid", "==", uid)
+    .get({ source: "default" })
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        tickets.push({ ...doc.data(), id: doc.id });
+      });
+    });
+  return tickets;
 };
 
 const reducer = (state, action) => {
@@ -143,6 +217,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         ticketType: ticketType,
+      };
+    }
+
+    case ACTION.LOAD_TICKETS: {
+      let tickets = action.tickets;
+      return {
+        ...state,
+        tickets: tickets,
       };
     }
 
